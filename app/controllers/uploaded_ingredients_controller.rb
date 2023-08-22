@@ -2,7 +2,7 @@ class UploadedIngredientsController < ApplicationController
   before_action :set_uploaded_ingredien, only: [:edit, :update]
 
   def index
-    @uploaded_ingredients = Uploaded_ingredients.all
+    @uploaded_ingredients = UploadedIngredient.all
   end
 
   def create
@@ -16,6 +16,7 @@ class UploadedIngredientsController < ApplicationController
   end
 
   def edit
+    #add/edit/delete
   end
 
   def update

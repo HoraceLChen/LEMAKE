@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show]
 
   def index
-    @recipes = Recipe.limit(3) #recipes comes from API
+    @recipes = Recipe.limit(3) #This comes from API
   end
 
   def show
@@ -11,6 +11,6 @@ class RecipesController < ApplicationController
   private
 
   def set_recipe
-    @recipe = recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 end

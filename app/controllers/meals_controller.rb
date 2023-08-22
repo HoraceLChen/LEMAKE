@@ -2,8 +2,6 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:edit, :update]
 
   def index
-    # User Profile as a show page
-    # Dashboard as a custom action
   end
 
   def new
@@ -24,14 +22,14 @@ class MealsController < ApplicationController
   end
 
   def update
-    @meal.update(meal_params)
+    @meal.update(meal_params) # => not updating
     redirect_to meal_recipes_path(@meal)
   end
 
   private
 
   def meal_params
-    params.require("meal").permit(:user_id, :img)
+    params.require(:meal).permit(:user_id, :img)
   end
 
   def set_meal
