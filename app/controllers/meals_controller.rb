@@ -32,7 +32,7 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require("meal").permit(:user_id, :cuisine_preference, :img, :time_preference, :people_preference)
+    params.require("meal").permit(:user_id, :img)
   end
 
   def set_meal
