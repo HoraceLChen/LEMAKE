@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   # add validation for @email.com to email field
   validates :password, presence: true, length: { minimum: 6 }
+  acts_as_favoritor
 end
