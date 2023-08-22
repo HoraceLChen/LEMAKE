@@ -1,5 +1,4 @@
 class MealsController < ApplicationController
-  skip_before_action :authenticate_user!
   before_action :set_meal, only: [:edit, :update]
 
   def index
@@ -26,7 +25,7 @@ class MealsController < ApplicationController
 
   def update
     @meal.update(meal_params)
-    redirect_to recipes_index_path(@meal)
+    redirect_to meal_recipes_path(@meal)
   end
 
   private
