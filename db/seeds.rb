@@ -24,12 +24,62 @@ users = [user1, user2, user3, user4]
   User.create(email: Faker::Internet.email(domain: "lewagon.co"), password: "password")
 end
 p 'users made'
+chicken = Ingredient.create(
+  name: "chicken drumstick"
+)
+flour = Ingredient.create(
+  name: "flour"
+)
+egg = Ingredient.create(
+  name: "egg"
+)
+Ingredient.create(
+  name: "beef steak"
+)
 30.times do
   Ingredient.create(
     name: Faker::Food.ingredient
   )
 end
 p 'ingredients made'
+
+recipe1 = Recipe.create(
+  title: "Vincent's Fried Chicken",
+  image: "https://www.coles.com.au/content/dam/coles/inspire-create/july22-images/Jul22-The-new-fried-chicken-976x549.jpg",
+  content: "Southern beer battered chicken wings",
+  cuisine: "American",
+  time: 2,
+  people: 3
+)
+RecipeIngredient.create(
+  serving: 6,
+  ingredient: chicken,
+  recipe: recipe1
+)
+RecipeIngredient.create(
+  serving: 2,
+  ingredient: flour,
+  recipe: recipe1
+)
+RecipeIngredient.create(
+  serving: 3,
+  ingredient: egg,
+  recipe: recipe1
+)
+# recipe2 = Recipe.create(
+#   title: "Vincent's Fried Chicken",
+#   image: "https://www.coles.com.au/content/dam/coles/inspire-create/july22-images/Jul22-The-new-fried-chicken-976x549.jpg",
+#   content: "Southern beer battered chicken wings",
+#   cuisine: "American",
+#   time: 2,
+#   people: 3
+# )
+# RecipeIngredient.create(
+#   serving: rand(1..5),
+#   ingredient_id: Ingredient.all.sample.id,
+#   recipe_id: recipe2.id
+# )
+
 30.times do
   recipe = Recipe.create(
     title: Faker::Food.dish,
