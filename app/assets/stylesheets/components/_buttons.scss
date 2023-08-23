@@ -1,0 +1,24 @@
+.btn-primary {
+  color: $white;
+  font-size: 20px;
+  background-color: $orange;
+  border-color: $white;
+  padding-left: 22px;
+  padding-right: 22px;
+  border-width: 2px;
+}
+
+.btn-primary:hover {
+  color: $white;
+  background-color: #ffae0b;
+}
+
+.btn-secondary {
+  color: $black;
+  font-size: 20px;
+  background-color: $white;
+  border-color: $orange;
+  padding-left: 22px;
+  padding-right: 22px;
+  border-width: 2px;
+}
