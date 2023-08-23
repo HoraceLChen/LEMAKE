@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @meal = Meal.find(params[:meal_id])
   end
 
   private
