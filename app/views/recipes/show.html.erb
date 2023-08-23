@@ -1,3 +1,14 @@
 <h1>Recipes#show</h1>
 <p>Find me in app/views/recipes/show.html.erb</p>
-<%= @recipe %>
+<%= @recipe.title %>
+<%= image_tag @recipe.image, alt: "#{@recipe.title}" %>
+<%= @recipe.content %>
+<h1>Reviews</h1>
+<% @recipe.reviews.each do |review| %>
+  <%= review.content %>
+  <%= review.user.email %>
+<% end %>
+<h1>Gallery</h1>
+<% @recipe.meals.each do |meal| %>
+  <%= image_tag meal.img, alt: "#{meal.id}" %>
+<% end %>
