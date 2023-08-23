@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.limit(3)
+    @meal = Meal.find(params[:meal_id])
   end
 
   def show
