@@ -16,7 +16,7 @@ class UploadedIngredientsController < ApplicationController
       redirect_to meal_uploaded_ingredients_path(@meal)
     else
       # Handle unsuccessful save, e.g., re-render the form with errors or show an error message
-      @uploaded_ingredients = UploadedIngredient.all
+      @uploaded_ingredients = @meal.uploaded_ingredients
       @ingredient_new = Ingredient.new
       render :index, status: :unprocessable_entity
     end
