@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show]
 
   def index
-    @recipes = Recipe.limit(3) #This comes from API
+    @recipes = Recipe.limit(3)
   end
 
   def show
