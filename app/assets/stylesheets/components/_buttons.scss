@@ -1,10 +1,20 @@
 .btn-primary {
-  color: $white;
+  color: $red;
   font-size: 20px;
   background-color: $orange;
-  border-color: $white;
+  border-color: $red;
   padding-left: 22px;
   padding-right: 22px;
+  border-width: 2px;
+}
+
+.btn-start {
+  color: $light-yellow;
+  font-size: 20px;
+  background-color: $orange;
+  border-color: $light-yellow;
+  padding-left: 80px;
+  padding-right: 80px;
   border-width: 2px;
 }
 
