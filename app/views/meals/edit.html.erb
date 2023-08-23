@@ -1,0 +1,12 @@
+<h1>Meals#edit</h1>
+<p>Find me in app/views/meals/edit.html.erb</p>
+<div class="container mt-5">
+  <div class="container col-6 col-md-4">
+    <%= simple_form_for @meal do |f| %>
+      <h1>Edit</h1>
+      <%= f.input :cuisine_preference %>
+      <%= f.input :time_preference %>
+      <%= f.input :people_preference %>
+      <%= f.button :submit, class: 'btn btn-danger' %>
+    <% end %>
+  </div>
