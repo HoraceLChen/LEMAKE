@@ -19,3 +19,13 @@
     </div>
   </div>
 </div>
+<h1>Reviews</h1>
+<% @recipe.reviews.each do |review| %>
+  <%= review.content %>
+  <%= review.user.email %>
+<% end %>
+<h1>Gallery</h1>
+<% @recipe.meals.each do |meal| %>
+  <%= image_tag meal.img, alt: "#{meal.id}" %>
+<% end %>
+
