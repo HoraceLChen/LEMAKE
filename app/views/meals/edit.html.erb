@@ -1,12 +1,20 @@
-<h1>Meals#edit</h1>
-<p>Find me in app/views/meals/edit.html.erb</p>
-<div class="container mt-5">
-  <div class="container col-6 col-md-4">
+<div class="container-meal-preference">
+  <div class="d-flex justify-content-center align-items-center mt-3">
+    <h2>Tell me more</h2>
+  </div>
+  <div class="card-time-preference">
     <%= simple_form_for @meal do |f| %>
-      <h1>Edit</h1>
-      <%= f.input :cuisine_preference %>
+      <h1>Time Available</h1>
+      <%= f.button :submit, class: 'btn' %>
       <%= f.input :time_preference %>
+      <%= f.button :submit, class: 'btn' %>
+    <% end %>
+  </div>
+  <div class="card-people-preference">
+    <%= simple_form_for @meal do |f| %>
+      <h1>People Available</h1>
+      <%= f.button :submit, class: 'btn' %>
       <%= f.input :people_preference %>
-      <%= f.button :submit, class: 'btn btn-danger' %>
+      <%= f.button :submit, class: 'btn' %>
     <% end %>
   </div>
