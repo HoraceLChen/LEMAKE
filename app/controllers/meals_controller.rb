@@ -13,7 +13,7 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     # new_uploaded_ingredient
-    @meal.user_id = cerrent_user.id
+    @meal.user_id = current_user.id
     if @meal.save
       redirect_to uploaded_ingredients_index_path
     else
