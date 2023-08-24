@@ -2,23 +2,19 @@
   <h2 class="d-flex justify-content-center align-items-center mt-3">Here is recipes!</h2>
   <% @recipes.each do |recipe| %>
     <div class="card-recipe">
-      <img src=<%= recipe.image %> />
+      <img src=<%= recipe["image"] %> />
       <div class="card-recipe-infos my-4">
-        <h2><%= recipe.title %></h2>
-        <p><i class="fa-solid fa-plate-wheat me-2"></i><%= recipe.cuisine %></p>
-        <p><i class="fa-solid fa-pen me-2"></i><%= recipe.content %></p>
+        <h2><%= recipe["title"] %></h2>
+        <p><i class="fa-solid fa-plate-wheat me-2"></i><%= recipe["cuisine"] %></p>
+        <%# <p><i class="fa-solid fa-pen me-2"></i><%= recipe.content %>
         <div class="flex d-flex justify-content-evenly">
-          <p><i class="fa-solid fa-user-group me-2"></i><%= recipe.people %></p>
-          <p><i class="fa-regular fa-clock me-2"></i><%= recipe.time %>hrs.</p>
+          <p><i class="fa-solid fa-user-group me-2"></i><%= recipe["servings"] %></p>
+          <p><i class="fa-regular fa-clock me-2"></i><%= recipe["readyInMinutes"] %>minutes.</p>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-          <%= link_to("See recipe", meal_recipe_path(@meal, recipe), class: "btn btn-outline-warning") %>
+          <%= link_to("See recipe", "#", class: "btn btn-outline-warning") %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-<%# <div data-controller="recipe_index" data-action="#->recipe_index#see_more" class="optional-recipes">
-  <h4 class="btn btn-outline-light" >See more</h4>
-</div>
-</div> %>
