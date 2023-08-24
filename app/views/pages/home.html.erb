@@ -1,2 +1,29 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<style>
+  body {
+    background-color: #FCD45D;
+  }
+
+  .spot2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .spot1 {
+    position: absolute;
+    top: 80px;
+    left: 0;
+  }
+
+</style>
+
+<%= image_tag "spot2.png", class: "spot2" %>
+<%= image_tag "spot1.png", class: "spot1" %>
+
+<div class="logo-container">
+  <%= image_tag "logo.png" %>
+  <h1>LE' MAKE</h1>
+
+  <%= link_to "Start", new_user_session_path, class: 'btn btn-primary' %>
+
+</div>

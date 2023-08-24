@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :uploaded_ingredients, only: [:index, :create]
     resources :recipes, only: [:index, :show]
   end
-  resources :uploaded_ingredients, only: [:edit, :update]
+  resources :uploaded_ingredients, only: [:destroy]
+  resources :ingredients, only: [:create]
 end

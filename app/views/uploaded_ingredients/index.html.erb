@@ -1,3 +1,19 @@
 <h1>UploadedIngredients#index</h1>
 <p>Find me in app/views/uploaded_ingredients/index.html.erb</p>
-<p> <%=  @uploaded_ingredients %></p>
+
+
+<%= simple_form_for [@meal, @uploaded_ingredient], url: meal_uploaded_ingredients_path(@meal) do |f| %>
+  <%= f.simple_fields_for :ingredient, @ingredient_new do |i_f| %>
+    <%= i_f.input :name, label: false, placeholder: "Need to add an ingredient? Type it here!" %>
+  <% end %>
+  <%= f.submit '+' %>
+<% end %>
+
+<%  @uploaded_ingredients.each do |uploaded_ingredient| %>
+  <p><%= uploaded_ingredient.ingredient.name.capitalize %></p>
+  <%= link_to uploaded_ingredient_path(uploaded_ingredient), data: {turbo_method: :delete} do %>
+    <i class="fas fa-trash"></i>
+  <% end %>
+<% end %>
+
+<%= link_to "Continue" , edit_meal_path(@meal) %>
