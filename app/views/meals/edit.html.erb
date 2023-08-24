@@ -5,14 +5,22 @@
   <div class="card-preference">
     <%= simple_form_for @meal do |f| %>
       <h3>Time Available</h3>
-      <%= f.input :time_preference %>
-      <%= f.button :submit, class: 'btn' %>
-    <% end %>
-  </div>
-  <div class="card-preference">
-    <%= simple_form_for @meal do |f| %>
+      <div class="d-flex justify-content-between" data-controller="form-increment">
+        <i class="fa-solid fa-circle-minus" data-action="click->form-increment#down"></i>
+        <%= f.input :time_preference, label: false, input_html: { data: { form_increment_target: "input"}} %>
+        <i class="fa-solid fa-circle-plus" data-action="click->form-increment#up"></i>
+      </div>
+    </div>
+    <div class="card-preference">
       <h3>People Available</h3>
-      <%= f.input :people_preference %>
-      <%= f.button :submit, class: 'btn' %>
-    <% end %>
-  </div>
+      <div class="d-flex justify-content-between" data-controller="form-increment">
+        <i class="fa-solid fa-circle-minus" data-action="click->form-increment#down"></i>
+        <%= f.input :people_preference, label: false,  input_html: { data: { form_increment_target: "input"}} %>
+        <i class="fa-solid fa-circle-plus" data-action="click->form-increment#up"></i>
+      </div>
+      <div>
+      </div>
+    </div>
+    <%= f.submit 'Done!', class: "mx-auto d-block btn-add-ingredient " %>
+  <% end %>
+</div>
