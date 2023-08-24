@@ -2,6 +2,7 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:edit, :update]
 
   def index
+    @recipe = Recipe.first
   end
 
   def new

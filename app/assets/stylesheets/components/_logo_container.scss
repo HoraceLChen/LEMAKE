@@ -1,21 +1,14 @@
-// body {
-//   margin: 0;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100vh;
-// }
-
 .logo-container {
   position: relative;
   z-index: 2;
   text-align: center;
+
   img {
     max-width: 60%;
     height: auto;
   }
 
-  h1 {
+  #start-page {
     color: #FDF8E1;
     font-weight: bold;
     font-size: 46px;
@@ -26,3 +19,11 @@
     font-size: 20px;
   }
 }
+
+.container-start {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
