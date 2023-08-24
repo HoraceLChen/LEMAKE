@@ -1,5 +1,18 @@
-<%= render "shared/navbar" %>
+<div class="container-sm">
 
-<h1>Meals#index</h1>
-<p>Find me in app/views/meals/index.html.erb</p>
-<h1>This is dashboard-page</h1>
+  <%= image_tag "logo.png", class: "small-logo" %>
+  <h2 class="mt-4 mb-4">Welcome back! <%= image_tag "logo.png", class: "small-logo" %></h2>
+
+  <p>Explore our premier recipes of the week or uncover a personalized recipe based on the ingredients you currently have at home.</p>
+  <div class="small-card">
+  <%= image_tag @recipe.image, class: "card-img-top" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @recipe.title %></h5>
+    <p class="card-text"><%= @recipe.content %></p>
+    <a href="#" class="btn btn-success">COOK</a>
+  </div>
+</div>
+
+</div>
+
+<%= render "shared/navbar" %>
