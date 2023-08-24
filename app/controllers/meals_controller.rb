@@ -13,7 +13,7 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     # new_uploaded_ingredient
-    @meal.user_id = current_user.id
+    @meal.user = current_user
     if @meal.save
       redirect_to uploaded_ingredients_index_path
     else
@@ -21,7 +21,11 @@ class MealsController < ApplicationController
     end
   end
 
-  def edit
+  def favourite_toggle
+    recipe = Recipe.find(params[:recipe])
+    current_user.favorited?(recipe) ? current_user.unfavorite(recipe) : current_user.favorite(recipe)
+    p current_user.all_favorites
+    head :ok
   end
 
   def update
