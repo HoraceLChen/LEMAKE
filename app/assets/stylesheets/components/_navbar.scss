@@ -1,12 +1,37 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+
+.navbar {
+  background-color: white;
+  color: $black;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.nav-links {
+  list-style: none;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  padding: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-links li {
+  margin: 0 15px;
+  // text-align: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: $black;
+  font-size: 38px;
+}
+
+#cookbtn {
+  border: 3px solid;
+  background-color: $yellow;
+  border-radius: 100%;
+  border-color: $black;
+  padding: 20px 26px 20px 26px; /* top right bottom left */
 }
