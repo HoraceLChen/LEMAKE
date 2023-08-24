@@ -4,9 +4,27 @@
     <ul class="nav-links">
       <div class="container text-center">
         <div class="row d-flex justify-content-evenly">
-          <div class="col"><li><a href="#"><i class="fa-regular fa-user"></i></a></li></div>
-          <div class="col"><li><a href="#" id="cookbtn"><i class="fa-solid fa-bowl-food"></i></a></li></div>
-          <div class="col"><li><a href="#"><i class="fa-regular fa-bookmark"></i></a></li></div>
+          <div class="col">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa-regular fa-user"></i>
+              <% end %>
+            </li>
+          </div>
+          <div class="col">
+            <li>
+              <%= link_to meals_path, id:"cookbtn", data: {turbo_method: "POST"} do %>
+                <i class="fa-solid fa-bowl-food"></i>
+              <% end %>
+            </li>
+          </div>
+          <div class="col">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa-regular fa-bookmark"></i>
+              <% end %>
+            </li>
+          </div>
         </div>
       </div>
     </ul>
