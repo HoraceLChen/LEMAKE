@@ -1,19 +1,30 @@
-<h1>UploadedIngredients#index</h1>
-<p>Find me in app/views/uploaded_ingredients/index.html.erb</p>
-
-
-<%= simple_form_for [@meal, @uploaded_ingredient], url: meal_uploaded_ingredients_path(@meal) do |f| %>
-  <%= f.simple_fields_for :ingredient, @ingredient_new do |i_f| %>
-    <%= i_f.input :name, label: false, placeholder: "Need to add an ingredient? Type it here!" %>
-  <% end %>
-  <%= f.submit '+' %>
-<% end %>
-
-<%  @uploaded_ingredients.each do |uploaded_ingredient| %>
-  <p><%= uploaded_ingredient.ingredient.name.capitalize %></p>
-  <%= link_to uploaded_ingredient_path(uploaded_ingredient), data: {turbo_method: :delete} do %>
-    <i class="fas fa-trash"></i>
-  <% end %>
-<% end %>
-
-<%= link_to "Continue" , edit_meal_path(@meal) %>
+<div class="container-ingredients-index">
+  <div class="d-flex justify-content-center align-items-center mt-3">
+    <h2>What do we have?</h2>
+  </div>
+  <div class="container-ingredients-card">
+    <h3>Your ingredients</h3>
+    <%  @uploaded_ingredients.each do |uploaded_ingredient| %>
+      <div class="ingredients-card mb-2">
+        <div class="d-flex justify-content-between mx-2 ingredient-text">
+          <p class="my-2"><%= uploaded_ingredient.ingredient.name.capitalize %></p>
+          <p class><%= link_to uploaded_ingredient_path(uploaded_ingredient), data: {turbo_method: :delete} do %></p>
+            <i class="fas fa-trash"></i>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="card-add-ingredient">
+    <h3>Add anIngredient</h3>
+    <div class="form">
+      <%= simple_form_for [@meal, @uploaded_ingredient], url: meal_uploaded_ingredients_path(@meal) do |f| %>
+        <%= f.simple_fields_for :ingredient, @ingredient_new do |i_f| %>
+          <%= i_f.input :name, label: "Name", placeholder: "Type ingredient here!" %>
+        <% end %>
+        <%= f.submit 'Add Ingredient', class: "mx-auto d-block btn-add-ingredient " %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to "Continue", edit_meal_path(@meal), class: "d-flex justify-content-center align-items-center m-5 btn-continue" %>
+</div>
