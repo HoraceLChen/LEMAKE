@@ -1,4 +1,4 @@
-<div class=container>
+<div class="container">
   <div class="card-recipe">
     <img src=<%= @recipe.image %> />
     <div class="card-recip-infos my-4">
@@ -20,10 +20,26 @@
 </div>
 <h1>Reviews</h1>
 <% @recipe.reviews.each do |review| %>
+  <%= review.rating %>
   <%= review.content %>
   <%= review.user.email %>
+<% end %>
+<%= simple_form_for @review do |f| %>
+  <div class="star-rating">
+    <% 5.times do |i| %>
+      <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+    <% end %>
+  </div>
+  <%= f.input :content %>
+  <%= f.hidden_field :meal_id, value: params[:meal_id] %>
+  <%= f.submit "Submit Review" %>
 <% end %>
 <h1>Gallery</h1>
 <% @recipe.meals.each do |meal| %>
   <%= image_tag meal.img, alt: "#{meal.id}" %>
+<% end %>
+<%= simple_form_for @meal do |f| %>
+  <%= f.input :img, as: :file %>
+  <%= f.submit "Upload Image" %>
+
 <% end %>
