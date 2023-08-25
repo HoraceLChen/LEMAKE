@@ -1,24 +1,13 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:edit, :update]
+  before_action :set_meal, only: [:update]
 
   def index
     @recipe = Recipe.first
   end
 
-  def new
-    @meal = Meal.new
-    # new_uploaded_ingredient
-  end
-
   def create
-    @meal = Meal.new(meal_params)
-    # new_uploaded_ingredient
-    @meal.user = current_user
-    if @meal.save
-      redirect_to uploaded_ingredients_index_path
-    else
-      render :new, status: :unprocessable_entity
-    end
+    meal = Meal.create!(user: current_user)
+    redirect_to meal_uploaded_ingredients_path(meal)
   end
 
   def favourite_toggle
@@ -43,7 +32,4 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
   end
 
-#   def new_uploaded_ingredient
-#     @uploaded_ingredient = UploadedIngredient.new
-#   end
 end

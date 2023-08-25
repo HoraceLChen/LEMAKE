@@ -68,7 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_084840) do
 
   create_table "meals", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "recipe_id", null: false
+    t.bigint "recipe_id"
     t.string "cuisine_preference"
     t.string "img"
     t.integer "time_preference"

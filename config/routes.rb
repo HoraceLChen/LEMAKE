@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  authenticated :user do
+    root 'meals#index', as: :authenticated_root
+  end
+
   root to: "pages#home"
 
   get "dashboard", to: "meals#index", as: :dashboard
