@@ -21,7 +21,6 @@ class MealsController < ApplicationController
   end
 
   def edit
-    @meal = Meal.new
   end
 
   def update
