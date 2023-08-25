@@ -1,32 +1,38 @@
+<div class="banner" style="background-image: url(<%= @recipe.image %>);">
+</div>
+
 <div class="container">
-  <div class="card-recipe">
-    <img src=<%= @recipe.image %> />
-    <div class="card-recip-infos my-4">
-      <div class="text-center">
-        <h2><%= @recipe.title %></h2>
-        <p><i class="fa-solid fa-plate-wheat me-2"></i><%= @recipe.cuisine %></p>
-      </div>
-      <div class="flex d-flex justify-content-evenly">
-        <p><i class="fa-solid fa-user-group me-2"></i><%= @recipe.people %></p>
-        <p><i class="fa-regular fa-clock me-2"></i><%= @recipe.time %>hrs.</p>
-      </div>
-      <div class ="text-center mt-5">
-        <p><i class="fa-solid fa-exclamation me-2"></i>You are misiing...</p>
-      </div>
-      <div class="d-flex justify-content-center align-items-center mt-5">
-        <p>Actual recipe here</p>
-      </div>
+  <h2 class="ms-2"><%= @recipe.title %></h2>
+
+  <div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <p><i class="fa-solid fa-plate-wheat me-2"></i><%= @recipe.cuisine %></p>
+    </div>
+    <div class="col">
+      <p><i class="fa-solid fa-user-group me-2"></i><%= @recipe.people %></p>
+    </div>
+    <div class="col">
+      <p><i class="fa-regular fa-clock me-2"></i><%= @recipe.time %>h</p>
     </div>
   </div>
 </div>
-<h1>Reviews</h1>
+
+
+  <div class="container text-center">
+    <p class="num-card">Step 1</p>
+    <div class="small-card">Combine chicken and tinder onto open flame</div>
+  </div>
+
+
+<h2>Reviews</h2>
 <% @recipe.reviews.each do |review| %>
   <%= review.rating %>
   <%= review.content %>
   <%= review.user.email %>
 <% end %>
 <%= simple_form_for @review do |f| %>
-  <div class="star-rating">
+  <div class="star-rating mb-3">
     <% 5.times do |i| %>
       <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
     <% end %>
@@ -35,13 +41,14 @@
   <%= f.hidden_field :meal_id, value: params[:meal_id] %>
   <%= f.submit "Submit Review", class: "btn btn-success" %>
 <% end %>
-<h1>Gallery</h1>
+<h2 class="mt-3">Gallery</h2>
 <p>Share with us the dish you've achieved as a result!</p>
 <% @recipe.meals.each do |meal| %>
   <%= image_tag meal.img, alt: "#{meal.id}" %>
 <% end %>
 <%= simple_form_for @meal do |f| %>
   <%= f.input :img, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Choose your file' %>
-  <%= f.submit "Upload Image", class: "btn btn-success" %>
+  <%# <%= f.submit "Upload Image", class: "btn btn-success" %>
 
 <% end %>
+</div>
