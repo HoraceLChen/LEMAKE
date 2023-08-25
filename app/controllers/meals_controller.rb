@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:update]
+  before_action :set_meal, only: [:edit, :update]
 
   def index
     @recipe = Recipe.first
@@ -18,7 +18,7 @@ class MealsController < ApplicationController
   end
 
   def edit
-    @meal = Meal.new
+    @meal_new = Meal.new
   end
   def update
     @meal.update!(meal_params)
