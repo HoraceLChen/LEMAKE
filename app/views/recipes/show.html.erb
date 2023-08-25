@@ -14,10 +14,18 @@
         <p><%= @recipe.content %></p>
       </div>
       <div class="d-flex justify-content-center align-items-center mt-5">
+        <% @recipe.steps.each_with_index do |step, index|%>
+        <p>Step <%= index+1 %></p>
+        <p><%= step %></p>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+ <%= simple_form_for @meal do |f| %>
+  <%= f.input :recipe_id, as: :hidden, input_html: { value: @recipe.id} %>
+  <%= f.submit 'Finished!', class: 'btn btn-danger' %>
+<% end %>
 <h1>Reviews</h1>
 <% @recipe.reviews.each do |review| %>
   <%= review.rating %>

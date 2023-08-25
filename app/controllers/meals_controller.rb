@@ -1,13 +1,16 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:update]
+  before_action :set_meal, only: [:edit, :update]
 
   def index
     @recipe = Recipe.first
   end
 
   def create
-    meal = Meal.create!(user: current_user)
+    meal = Meal.create(user: current_user)
     redirect_to meal_uploaded_ingredients_path(meal)
+    # if meal.save
+
+    # end
   end
 
   def favourite_toggle
@@ -20,15 +23,16 @@ class MealsController < ApplicationController
   def edit
     @meal = Meal.new
   end
+
   def update
-    @meal.update!(meal_params)
+    @meal.update(meal_params)
     redirect_to meal_recipes_path(@meal)
   end
 
   private
 
   def meal_params
-    params.require(:meal).permit(:user_id, :img, :time_preference, :people_preference, :cuisine_preference)
+    params.require(:meal).permit(:user_id, :img, :time_preference, :people_preference, :cuisine_preference, :recipe_id)
   end
 
   def set_meal
