@@ -22,18 +22,19 @@
     </div>
   </div>
 </div>
+<div class="container text-center mb-4">
+  <% @recipe.steps.each_with_index do |step, index|%>
+    <%# <p class="num-card">Step <%= index+1 %>
+    <div class="small-card mt-3">Step <%= index+1 %><br><%= step %></div>
+  <% end %>
+</div>
+<div class="d-flex justify-content-center">
  <%= simple_form_for @meal do |f| %>
   <%= f.input :recipe_id, as: :hidden, input_html: { value: @recipe.id} %>
-  <%= f.submit 'Finished!', class: 'btn btn-danger' %>
+  <%= f.submit 'Finished!', class: 'btn btn-success' %>
 <% end %>
-  <div class="container text-center mb-4">
-    
+</div>
 
-    <% @recipe.steps.each_with_index do |step, index|%>
-        <p class="num-card">Step <%= index+1 %></p>
-    <div class="small-card"><%= step %></div>
-            <% end %>
-  </div>
 <h2>Reviews</h2>
 <% @recipe.reviews.each do |review| %>
   <%= review.rating %>
