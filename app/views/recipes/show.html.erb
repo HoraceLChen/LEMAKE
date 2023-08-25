@@ -11,10 +11,11 @@
         <p><i class="fa-regular fa-clock me-2"></i><%= @recipe.time %>hrs.</p>
       </div>
       <div class ="text-center mt-5">
-        <p><i class="fa-solid fa-exclamation me-2"></i>You are misiing...</p>
+        <p><%= @recipe.content %></p>
       </div>
       <div class="d-flex justify-content-center align-items-center mt-5">
-        <p>Actual recipe here</p>
+        <% raise %>
+        <%# <p><%= @recipe.steps.map do |steps %></p> %>
       </div>
     </div>
   </div>
@@ -28,4 +29,3 @@
 <% @recipe.meals.each do |meal| %>
   <%= image_tag meal.img, alt: "#{meal.id}" %>
 <% end %>
-
