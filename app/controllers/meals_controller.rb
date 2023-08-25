@@ -20,6 +20,7 @@ class MealsController < ApplicationController
   def edit
     @meal = Meal.new
   end
+
   def update
     @meal.update!(meal_params)
     redirect_to meal_recipes_path(@meal)
