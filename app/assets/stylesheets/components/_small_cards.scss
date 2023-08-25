@@ -1,7 +1,8 @@
 .small-card {
-  width: 20rem;
+  width: 100%;
   border: 2px solid;
-  border-radius: 2%;
+  padding: 8px;
+  border-radius: 20px;
   border-color: $black;
   background-color: $white;
 }
@@ -11,4 +12,12 @@
   border-radius: 2%;
   border-color: $black;
 
+}
+
+.num-card {
+  border: 2px solid;
+  padding: 8px;
+  border-radius: 50px;
+  border-color: $black;
+  background-color: $white;
 }

@@ -6,11 +6,18 @@ export default class extends Controller {
   connect() {
   }
 
-  down(){
-    this.inputTarget.value -= 1
+  timeDown(){
+    this.inputTarget.value = (parseInt(this.inputTarget.value, 10) - 5);
+  }
+  timeUp(){
+    this.inputTarget.value = (parseInt(this.inputTarget.value, 10) + 5);
   }
 
-  up(){
-    this.inputTarget.value += 1
+  peopleDown(){
+    this.inputTarget.value = (parseInt(this.inputTarget.value, 10) - 1);
+  }
+
+  peopleUp(){
+    this.inputTarget.value = (parseInt(this.inputTarget.value, 10) + 1);
   }
 }
