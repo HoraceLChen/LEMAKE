@@ -1,9 +1,11 @@
 <div class="container-ingredients-index">
   <div class="d-flex justify-content-center align-items-center mt-3">
-    <h2>What do we have?</h2>
+    <h1>What do we have?</h1>
   </div>
   <div class="container-ingredients-card">
-    <h3>Your ingredients</h3>
+    <div class="text-center mb-4 card-title">
+      <h3>Your ingredients</h3>
+    </div>
     <%  @uploaded_ingredients.each do |uploaded_ingredient| %>
       <div class="ingredients-card mb-2">
         <div class="d-flex justify-content-between mx-2 ingredient-text">
@@ -16,15 +18,17 @@
     <% end %>
   </div>
   <div class="card-add-ingredient">
-    <h3>Add anIngredient</h3>
+    <div class="text-center mb-4 card-title">
+      <h3>Add an Ingredient</h3>
+    </div>
     <div class="form">
       <%= simple_form_for [@meal, @uploaded_ingredient], url: meal_uploaded_ingredients_path(@meal) do |f| %>
         <%= f.simple_fields_for :ingredient, @ingredient_new do |i_f| %>
-          <%= i_f.input :name, label: "Name", placeholder: "Type ingredient here!" %>
+          <%= i_f.input :name, label:false, placeholder: "Type ingredient here!", input_html: { class: "ingredient-input"} %>
         <% end %>
-        <%= f.submit 'Add Ingredient', class: "mx-auto d-block btn-add-ingredient " %>
+        <%= f.submit 'Add Ingredient', class: "mx-auto d-block btn-add-ingredient" %>
       <% end %>
     </div>
   </div>
-  <%= link_to "Continue", edit_meal_path(@meal), class: "d-flex justify-content-center align-items-center m-5 btn-continue" %>
+  <%= link_to "Continue", edit_meal_path(@meal), class: "mx-auto d-block btn-continue" %>
 </div>
