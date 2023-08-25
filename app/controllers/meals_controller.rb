@@ -18,7 +18,6 @@ class MealsController < ApplicationController
   end
 
   def edit
-    @meal_new = Meal.new
   end
   def update
     @meal.update!(meal_params)
