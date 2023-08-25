@@ -2,33 +2,44 @@
 </div>
 
 <div class="container">
-  <h2 class="ms-2"><%= @recipe.title %></h2>
+  <h2 class="ms-2 text-center my-3 "><%= @recipe.title %></h2>
 
   <div class="container text-center">
+      <div class="container my-3 align-items-center ">
     <div class="row">
       <div class="col">
-        <p><i class="fa-solid fa-plate-wheat me-2"></i><%= @recipe.cuisine %></p>
+        <i class="fa-solid fa-plate-wheat me-2"></i><%= @recipe.cuisine %>
       </div>
       <div class="col">
-        <p><i class="fa-solid fa-user-group me-2"></i><%= @recipe.people %></p>
+        <i class="fa-solid fa-user-group me-2"></i><%= @recipe.people %>
       </div>
       <div class="col">
-        <p><i class="fa-regular fa-clock me-2"></i><%= @recipe.time %>h</p>
-      <div class ="text-center mt-5">
+        <i class="fa-regular fa-clock me-2"></i><%= @recipe.time %> m
+        </div>
+        </div>
+        </div>
+      <div class ="text-center">
         <p><%= @recipe.content %></p>
       </div>
       <div class="d-flex justify-content-center align-items-center mt-5">
       </div>
     </div>
   </div>
-
-
-  <div class="container text-center mb-4">
-    <p class="num-card">Step 1</p>
-    <div class="small-card">Combine chicken and tinder onto open flame</div>
-  </div>
-
-
+</div>
+</div>
+<div class="container text-center mb-4">
+  <% @recipe.steps.each_with_index do |step, index|%>
+    <%# <p class="num-card">Step <%= index+1 %>
+    <div class="small-card mt-3">Step <%= index+1 %><br><%= step %></div>
+  <% end %>
+</div>
+<div class="d-flex justify-content-center">
+ <%= simple_form_for @meal do |f| %>
+  <%= f.input :recipe_id, as: :hidden, input_html: { value: @recipe.id} %>
+  <%= f.submit 'Finished!', class: 'btn btn-success' %>
+<% end %>
+</div>
+<div class="container text-center mt-5">
 <h2>Reviews</h2>
 <% @recipe.reviews.each do |review| %>
   <%= review.rating %>

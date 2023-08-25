@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show]
 
   def index
+    @fixed_recipe = Recipe.first
     api_key = ENV['SPOONACULAR_API_KEY']
     service = SpoonacularService.new(api_key)
     @meal = Meal.find(params[:meal_id])
