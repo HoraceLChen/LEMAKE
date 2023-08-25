@@ -34,14 +34,6 @@
       <%= f.submit 'Finished!', class: 'btn-finish' %>
     <% end %>
   </div>
-  <div class="container text-center mb-4">
-    <% @recipe.steps.each_with_index do |step, index|%>
-      <p class="num-card">Step <%= index+1 %></p>
-      <div class="small-card">
-        <%= step %>
-      </div>
-    <% end %>
-  </div>
   <div class="container text-center mt-5">
 <h2>Reviews</h2>
 <% @recipe.reviews.each do |review| %>
