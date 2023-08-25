@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   end
   resources :uploaded_ingredients, only: [:destroy]
   resources :ingredients, only: [:create]
+  resources :reviews, only: [:create]
 end
