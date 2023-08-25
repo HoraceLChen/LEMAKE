@@ -28,7 +28,7 @@ class SpoonacularService
       title: result["title"],
       image: result["image"],
       content: result["summary"].gsub(/<[^>]+>.*?/, ''),
-      cuisine: result["cuisines"],
+      cuisine: result["cuisines"][0],
       time: result["readyInMinutes"],
       steps: steps_content,
       people: result["servings"]
