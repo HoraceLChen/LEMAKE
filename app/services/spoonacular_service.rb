@@ -19,16 +19,15 @@ class SpoonacularService
       req.params['number'] = 6
     end
     results = JSON.parse(response.body) if response.status == 200
-
-    results["results"].each do |result|
-      # p result
-      # # raise
-      # Recipe.new(
-      # title: result["title"],
-      # cuisine: result["image"],
-      # time: result["readyInMinutes"]
-      # )
-        # @recipes.push(recipe)
+    results["results"].map do |result|
+      Recipe.create(
+      title: result["title"],
+      image: result["image"],
+      content: result["summary"].gsub(/<[^>]+>.*?/, ''),
+      cuisine: result["image"],
+      time: result["readyInMinutes"],
+      people: result["servings"]
+      )
     end
   end
 end
