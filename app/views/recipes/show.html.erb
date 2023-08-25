@@ -31,24 +31,24 @@
   <%= review.content %>
   <%= review.user.email %>
 <% end %>
-<%= simple_form_for @review do |f| %>
+<%= form_with(model: @review, url: reviews_path, local: true) do |f| %>
   <div class="star-rating mb-3">
     <% 5.times do |i| %>
-      <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+      <%= f.radio_button :rating, i + 1, checked: i == 2 %>
     <% end %>
   </div>
-  <%= f.input :content, label: "Share your thoughts" %>
+  <%= f.label :content, "Share your thoughts" %>
+  <%= f.text_area :content %>
   <%= f.hidden_field :meal_id, value: params[:meal_id] %>
   <%= f.submit "Submit Review", class: "btn btn-success" %>
 <% end %>
-<h2 class="mt-3">Gallery</h2>
-<p>Share with us the dish you've achieved as a result!</p>
-<% @recipe.meals.each do |meal| %>
-  <%= image_tag meal.img, alt: "#{meal.id}" %>
-<% end %>
-<%= simple_form_for(@meal, html: {'data-controller': 'upload'}) do |f| %>
-  <%= f.input :img, as: :file, input_html: { class: 'd-none', 'data-action': 'change->upload#submit' }, label_html: { class: 'upload-photo'}, label: '📷 Upload your photo' %>
-  <%# <%= f.submit "Upload Image", class: "btn btn-success" %>
-
-<% end %>
+  <div class=""> <h2>Gallery</h2>
+    <%= form_with(model: @meal, url: upload_photo_meal_path(id: @meal), local: true, html: {'data-controller': 'upload'}) do |f| %>
+      <%= f.label :photo, '📷 Upload your photo', class: 'upload-photo' %>
+      <%= f.file_field :photo, class: 'd-none', 'data-action': 'change->upload#submit' %>
+      <%= cl_image_tag(@meal.photo.key) if @meal.photo.attached? %>
+      <%# <%= f.submit "Upload Image", class: "btn btn-success" %>
+      <%# # Optional, if you want a submit button %>
+    <% end %>
+  </div>
 </div>

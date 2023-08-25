@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:update]
+  before_action :set_meal, only: [:update, :upload_photo]
 
   def index
     @recipe = Recipe.first
@@ -17,6 +17,12 @@ class MealsController < ApplicationController
     head :ok
   end
 
+  def upload_photo
+    recipe = @meal.recipe
+    @meal.update!(meal_params)
+    redirect_to meal_recipe_path(@meal, recipe)
+  end
+
   def edit
     @meal = Meal.new
   end
@@ -29,7 +35,7 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:user_id, :img, :time_preference, :people_preference, :cuisine_preference)
+    params.require(:meal).permit(:user_id, :photo, :time_preference, :people_preference, :cuisine_preference)
   end
 
   def set_meal
