@@ -31,16 +31,17 @@
       <input type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
     <% end %>
   </div>
-  <%= f.input :content %>
+  <%= f.input :content, label: "Share your thoughts" %>
   <%= f.hidden_field :meal_id, value: params[:meal_id] %>
-  <%= f.submit "Submit Review" %>
+  <%= f.submit "Submit Review", class: "btn btn-success" %>
 <% end %>
 <h1>Gallery</h1>
+<p>Share with us the dish you've achieved as a result!</p>
 <% @recipe.meals.each do |meal| %>
   <%= image_tag meal.img, alt: "#{meal.id}" %>
 <% end %>
 <%= simple_form_for @meal do |f| %>
-  <%= f.input :img, as: :file %>
-  <%= f.submit "Upload Image" %>
+  <%= f.input :img, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Choose your file' %>
+  <%= f.submit "Upload Image", class: "btn btn-success" %>
 
 <% end %>
