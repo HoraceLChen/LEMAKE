@@ -33,6 +33,12 @@
              <div class="d-flex justify-content-center align-items-center" data-controller="favourites">
           <%= link_to("See recipe", meal_recipe_path(@meal, recipe), class: "btn btn-outline-warning") %>
           <%= link_to(current_user.favorited?(recipe) ? "Unfavourite" : "Favourite","#", class: "btn btn-outline-warning", data: {url: favourite_toggle_meal_path(id: @meal, recipe: recipe), favourites_target: "favouriteLink", action: "favourites#toggle" }) %>
+            <div class="d-flex justify-content-center align-items-center mb-5">
+              <%= simple_form_for @meal, url: save_recipe_meal_path(@meal, recipe) do |f| %>
+                <%= f.input :recipe_id, as: :hidden, input_html: { value: recipe.id} %>
+                <%= f.submit 'COOK!', class: 'btn-finish' %>
+              <% end %>
+            </div>
         <%# , favourites_target: "button", action: "favourites#select"  %>
         </div>
       </div>

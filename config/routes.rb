@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     member do
       patch :favourite_toggle
       patch :upload_photo
+      patch :save_recipe
     end
   end
   resources :uploaded_ingredients, only: [:destroy]

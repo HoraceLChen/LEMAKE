@@ -31,8 +31,18 @@ class SpoonacularService
       cuisine: result["cuisines"][0],
       time: result["readyInMinutes"],
       steps: steps_content,
-      people: result["servings"]
+      people: result["servings"],
+      spoonacular_id: result["id"]
       )
     end
+  end
+
+  def search_by_recipe(recipe)
+  @connection_r = Faraday.new(url: "https://api.spoonacular.com/recipes/#{recipe}/information?")
+    response = @connection_r.get do |req|
+      req.url @connection_r
+      req.params['apiKey'] = @api_key
+    end
+    results = JSON.parse(response.body) if response.status == 200
   end
 end
