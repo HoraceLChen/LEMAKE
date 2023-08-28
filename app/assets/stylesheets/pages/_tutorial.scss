@@ -11,14 +11,15 @@
   height: auto;
 }
 
-.card-order{
+.tutorial-image{
+  width: 290px;
+}
+
+.smile-lemon{
   width: 80px;
-  height: 40px;
-  line-height: 35px;
-  margin: auto;
-  border: 2px solid #000;
-  border-radius: 50%;
-  background-color: rgb(244, 244, 244);
+  height: auto;
+  position: absolute;
+  margin-left: 230px;
 }
 
 .arrow{
@@ -28,6 +29,15 @@
   margin: auto;
 }
 
+// .card-order{
+//   width: 80px;
+//   height: 40px;
+//   line-height: 35px;
+//   margin: auto;
+//   border: 2px solid #000;
+//   border-radius: 50%;
+//   background-color: rgb(244, 244, 244);
+// }
 
 // .line{
 //   margin: auto;

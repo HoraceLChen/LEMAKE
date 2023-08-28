@@ -1,19 +1,20 @@
 <div class="container-tutorial">
-  <%= link_to 'Back',  dashboard_path %>
-  <div class="d-flex justify-content-center align-items-center mt-3
-  ">
+  <%= link_to dashboard_path do %>
+    <i class="fa-solid fa-arrow-left-long" style="color: #484846;"></i>
+  <% end %>
+  <div class="d-flex justify-content-center align-items-center mt-5 mb-5">
     <h1>How you can get a recipe?</h1>
   </div>
-  <div><%= image_tag "tutorial/komatta_lemon.png", class: "mb-5 lemon-image" %></div>
+  <%# <div><%= image_tag "tutorial/camera_lemon.JPEG", class: "mb-5 lemon-image" %>
   <div class="card-preference">
     <div class="text-center mb-4 preference-title">
       <h4>Step 1</h4>
     </div>
     <div>
-      <p><i class="mr-2 fa-solid fa-camera" style="color: #484846; margin-right: 5px;"></i>Turn on your camera</p>
+      <p><i class="mr-2 fa-solid fa-camera" style="color: #484846; margin-right: 5px;"></i>Take a photo of ingredients</p>
     </div>
+    <div><%= image_tag "tutorial/camera_lemon.JPEG", class: "mb-5 tutorial-image" %></div>
     <div>
-      <%# <%= image_tag "#", class: "" %>
     </div>
   </div>
   <p><i class="fa-solid fa-angles-down d-flex justify-content-center align-items-center arrow"></i></p>
@@ -37,11 +38,12 @@
   </div>
   <p><i class="fa-solid fa-angles-down d-flex justify-content-center align-items-center arrow"></i></p>
   <div class="card-preference">
+    <%= image_tag "tutorial/smile_lemon.png", class: "smile-lemon" %>
     <div class="text-center mb-4 preference-title">
       <h4>Step 4</h4>
     </div>
     <div>
-      <p>Choose the recipe and Cook!</p>
+      <p>Choose the recipe and cook!</p>
     </div>
   </div>
   <p><i class="fa-solid fa-angles-down d-flex justify-content-center align-items-center arrow"></i></p>
