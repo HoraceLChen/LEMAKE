@@ -34,35 +34,44 @@
       <%= f.submit 'Finished!', class: 'btn-finish' %>
     <% end %>
   </div>
-  <div class="container text-center mt-5">
-<h2>Reviews</h2>
-<% @recipe.reviews.each do |review| %>
-  <%= review.rating %>
-  <%= review.content %>
-  <%= review.user.email %>
-<% end %>
-    <div class="container-review">
-<%= form_with(model: @review, url: reviews_path, local: true) do |f| %>
-  <div class="star-rating mb-3">
+
+  <div class="main">
+    <div class="btn-box">
+      <button class="tab active" id="tab1" data-panel="#one">Notes</button>
+      <button class="tab" id="tab2" data-panel="#two">Gallery</button>
+      <div class="slider"></div>
+    </div>
+
+  <div class="content show" id="container-notes">
+    <h2>Notes</h2>
+    <%= form_with(model: @review, url: reviews_path, local: true) do |f| %>
+    <%# <div class="star-rating mb-3">
     <% 5.times do |i| %>
-      <%= f.radio_button :rating, i + 1, checked: i == 2 %>
+      <%# <%= f.radio_button :rating, i + 1, checked: i == 2 %>
+    <%# <% end %>
+    <%# </div>   %>
+      <%= f.label :content, "" %>
+      <%= f.text_area :content, placeholder: "Leave a note to yourself...", class: "container" %>
+      <%= f.hidden_field :meal_id, value: params[:meal_id] %>
+      <%= f.submit "Submit", class: "btn btn-success" %>
     <% end %>
-  </div>
-  <%= f.label :content, "Share your thoughts" %>
-  <%= f.text_area :content %>
-  <%= f.hidden_field :meal_id, value: params[:meal_id] %>
-  <%= f.submit "Submit Review", class: "btn btn-success" %>
-<% end %>
-            </div>
-    <div class="container-gallery">
-  <div class=""> <h2>Gallery</h2>
-    <%= form_with(model: @meal, url: upload_photo_meal_path(id: @meal), local: true, html: {'data-controller': 'upload'}) do |f| %>
-      <%= f.label :photo, '📷 Upload your photo', class: 'upload-photo' %>
-      <%= f.file_field :photo, class: 'd-none', 'data-action': 'change->upload#submit' %>
-      <%= cl_image_tag(@meal.photo.key) if @meal.photo.attached? %>
-      <%# <%= f.submit "Upload Image", class: "btn btn-success" %>
-      <%# # Optional, if you want a submit button %>
-    <% end %>
+    <% @recipe.reviews.each do |review| %>
+      <div id="notes">
+        <%= review.content %>
       </div>
+      <% end %>
   </div>
+
+  <div class="content" id="container-gallery">
+    <div class=""> <h2>Gallery</h2>
+      <%= form_with(model: @meal, url: upload_photo_meal_path(id: @meal), local: true, html: {'data-controller': 'upload'}) do |f| %>
+        <%= f.label :photo, '📷 Upload your photo', class: 'upload-photo' %>
+        <%= f.file_field :photo, class: 'd-none', 'data-action': 'change->upload#submit' %>
+        <%= cl_image_tag(@meal.photo.key) if @meal.photo.attached? %>
+        <%# <%= f.submit "Upload Image", class: "btn btn-success" %>
+        <%# # Optional, if you want a submit button %>
+      <% end %>
+    </div>
   </div>
+</div>
+</div>

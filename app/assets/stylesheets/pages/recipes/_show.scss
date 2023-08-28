@@ -8,7 +8,7 @@
   margin-top: 30px;
 }
 
-.container-review{
+#container-notes{
   padding: 20px;
   border: 2px solid #000;
   border-radius: 10px;
@@ -16,7 +16,7 @@
   margin-bottom: 20px;
 }
 
-.container-gallery{
+#container-gallery{
   padding: 20px;
   border: 2px solid #000;
   border-radius: 10px;
@@ -38,4 +38,12 @@
 
 .upload-form{
   border-radius: 10px;
+}
+
+#notes {
+  margin: 8px;
+  padding: 20px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  // border-bottom: 2px solid #000;
 }
