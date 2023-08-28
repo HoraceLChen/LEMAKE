@@ -14,6 +14,5 @@ class SpoonacularServiceRecipe
       req.params['id'] = @spoonacular_id
     end
     results = JSON.parse(response.body) if response.status == 200
-    raise
   end
 end
