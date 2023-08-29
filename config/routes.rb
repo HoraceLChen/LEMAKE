@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       member do
         get 'pantry', to: 'pantry_ingredients#index'
         post 'pantry', to: 'pantry_ingredients#create'
+        get 'bookmarks', to: 'bookmarks#index'
+
       end
     end
 

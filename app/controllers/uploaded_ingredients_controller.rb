@@ -8,9 +8,10 @@ class UploadedIngredientsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.find_or_create_by(name: ingredient_params[:name].downcase)
+    @ingredient = Ingredient.find_or_create_by(name: ingredient_params[:name].downcase, category: "Meat")
     @uploaded_ingredient = UploadedIngredient.new
     @uploaded_ingredient.ingredient = @ingredient
+
     @uploaded_ingredient.meal = @meal
     if @uploaded_ingredient.save
       redirect_to meal_uploaded_ingredients_path(@meal)
