@@ -13,7 +13,10 @@ class UploadedIngredientsController < ApplicationController
     @uploaded_ingredient.ingredient = @ingredient
     @uploaded_ingredient.meal = @meal
     if @uploaded_ingredient.save
-      redirect_to meal_uploaded_ingredients_path(@meal)
+      respond_to do |format|
+        format.html { redirect_to meal_uploaded_ingredient_path(@meal) }
+        format.text { render partial: "uploaded_ingredients/uploaded_ingredient", locals: { uploaded_ingredient: @uploaded_ingredient }, formats: [:html] }
+      end
     else
       # Handle unsuccessful save, e.g., re-render the form with errors or show an error message
       @uploaded_ingredients = @meal.uploaded_ingredients
