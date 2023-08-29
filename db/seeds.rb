@@ -8,6 +8,9 @@
 
 RecipeIngredient.destroy_all
 UploadedIngredient.destroy_all
+RecipeIngredient.destroy_all
+UploadedIngredient.destroy_all
+PantryIngredient.destroy_all
 Ingredient.destroy_all
 Review.destroy_all
 Meal.destroy_all
@@ -431,37 +434,6 @@ categories = {
     "Tagatose",
     "Treacle",
   ],
-  "Pantry Essentials" => [
-    "Basil",
-    "Chilies",
-    "Mushrooms",
-    "Onions",
-    "Beef mince",
-    "Eggs",
-    "Soy sauce",
-    "Chicken thigh",
-    "Tomatoes",
-    "Carrots",
-    "Spinach",
-    "Rice",
-    "Lemongrass",
-    "Potatoes",
-    "Olive oil",
-    "Sesame oil",
-    "Ginger",
-    "Mango",
-    "Sugar",
-    "Coconut milk",
-    "Coriander",
-    "Fish sauce",
-    "Shrimp",
-    "Bell peppers",
-    "Cumin",
-    "Tofu",
-    "Garlic",
-    "Lemon",
-    "Lime",
-  ],
 }
 
 # Seed the database
@@ -483,17 +455,17 @@ recipe1 = Recipe.create(
 )
 RecipeIngredient.create(
   serving: 6,
-  ingredient: Ingredient.sample,
+  ingredient: Ingredient.all.sample,
   recipe: recipe1
 )
 RecipeIngredient.create(
   serving: 2,
-  ingredient: Ingredient.sample,
+  ingredient: Ingredient.all.sample,
   recipe: recipe1
 )
 RecipeIngredient.create(
   serving: 3,
-  ingredient: Ingredient.sample,
+  ingredient: Ingredient.all.sample,
   recipe: recipe1
 )
 # recipe2 = Recipe.create(

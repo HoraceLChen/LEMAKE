@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-  # app/models/ingredient.rb
+  include AlgoliaSearch
   CATEGORIES = [
     "Baking", "Canned and Jarred", "Cheese", "Condiments", "Meat", "Milk, Eggs, Other Dairy",
     "Nuts", "Oil, Vinegar, Salad Dressing", "Produce", "Seafood", "Spices and Seasonings",
@@ -7,6 +7,10 @@ class Ingredient < ApplicationRecord
     "Specialty Foods", "Snacks", "Miscellaneous", "Cold/Frozen Items"
   ]
 
+  algoliasearch do
+    attributes :name
+  end
+
   validates :category, inclusion: { in: CATEGORIES }
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :name, uniqueness: { scope: :category, case_sensitive: false, message: "should be unique within the same category" }
 end
