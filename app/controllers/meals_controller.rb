@@ -3,7 +3,7 @@ class MealsController < ApplicationController
 
 
   def index
-    @recipe = Recipe.first
+    @recipe = Recipe.all.sample
   end
 
   def create

@@ -2,21 +2,7 @@
   <div class="d-flex justify-content-center align-items-center mt-3">
     <h1>What do we have?</h1>
   </div>
-  <div class="container-ingredients-card">
-    <div class="text-center mb-4 card-title">
-      <h3>Your ingredients</h3>
-    </div>
-    <%  @uploaded_ingredients.each do |uploaded_ingredient| %>
-      <div class="ingredients-card mb-2">
-        <div class="d-flex justify-content-between mx-2 ingredient-text">
-          <p class="my-2"><%= uploaded_ingredient.ingredient.name.capitalize %></p>
-          <p class><%= link_to uploaded_ingredient_path(uploaded_ingredient), data: {turbo_method: :delete} do %></p>
-            <i class="fas fa-trash"></i>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'shared/ingredients_card' %>
   <div class="card-add-ingredient">
     <div class="text-center mb-4 card-title">
       <h3>Add an Ingredient</h3>

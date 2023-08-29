@@ -19,10 +19,20 @@
     padding: 5px;
     border: 2px solid #000;
     border-radius: 10px;
+    .ingredient-icon{
+      border: 2px solid $black;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+    }
+    .ingredient-name{
+      width: 66%;
+    }
   }
 
   .ingredient-text{
     align-items:center;
+    margin-right: 1rem;
   }
 }
 
@@ -36,14 +46,13 @@
     color: rgb(56, 56, 56);
     border-color: rgb(56, 56, 56);
     background-color: rgb(252, 212, 93);
-    font-size: 20px;
-    background-color: $orange;
-    padding-left: 22px;
-    padding-right: 22px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    font-size: 14pt;
+    background-color: $yellow;
+    padding: 6px;
     border-width: 2px;
     border-radius: 30px;
+    width: 100%;
+    height: fit-content;
   }
 }
 
@@ -56,8 +65,8 @@
   border: 2px solid rgb(56, 56, 56);
   color: rgb(56, 56, 56);
 
-  font-size: 18px;
-  width: 170px;
+  font-size: 18pt;
+  width: 100%;
   padding: 10px;
   border-radius: 30px;
   text-decoration: none;
@@ -67,4 +76,7 @@
 
 .card-title{
   border-bottom: 2px solid;
+}
+.card-title .h3 {
+  margin-bottom: 15px;
 }
