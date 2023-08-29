@@ -112,11 +112,19 @@ p 'recipes made'
   )
 end
 p 'meals created'
-50.times do
-  Review.create(
-    rating: rand(1..5),
-    content: Faker::Quote.matz,
-    meal_id: Meal.all.sample.id
-  )
-end
+
+Review.create(
+  content: "No sugar",
+  meal_id: Meal.all.sample.id
+)
+
+Review.create(
+  content: "Change thyme for basil",
+  meal_id: Meal.all.sample.id
+)
+
+Review.create(
+  content: "I like this one!",
+  meal_id: Meal.all.sample.id
+)
 p 'reviews created'
