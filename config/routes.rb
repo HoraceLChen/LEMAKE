@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [] do
       member do
         get 'pantry', to: 'pantry_ingredients#index'
-        # post 'pantry', to: 'pantry_ingredients#create'
+        post 'pantry', to: 'pantry_ingredients#create'
       end
     end
 

@@ -8,9 +8,9 @@ class Ingredient < ApplicationRecord
   ]
 
   algoliasearch do
-    attributes :name
+    attributes :name, :category
   end
-
+  has_many :pantry_ingredients
   validates :category, inclusion: { in: CATEGORIES }
   validates :name, uniqueness: { scope: :category, case_sensitive: false, message: "should be unique within the same category" }
 end
