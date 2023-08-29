@@ -1,0 +1,26 @@
+<div class="container-ingredients-card">
+    <div class="text-center mb-4 card-title">
+      <h3>Your ingredients</h3>
+    </div>
+    <%  @uploaded_ingredients.each do |uploaded_ingredient| %>
+      <div class="ingredients-card mb-2">
+        <div class="d-flex justify-content-between ingredient-text">
+          <div class="ingredient-icon"></div>
+          <p class="my-2 ingredient-name"><%= uploaded_ingredient.ingredient.name.capitalize %></p>
+          <p class><%= link_to uploaded_ingredient_path(uploaded_ingredient), data: {turbo_method: :delete} do %></p>
+            <i class="fas fa-circle-minus fa-xl"></i>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+<div class="ingredients-card">
+  <div class="title">
+
+  </div>
+  <div class="content">
+
+  </div>
+</div>
