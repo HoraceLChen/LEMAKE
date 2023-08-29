@@ -45,7 +45,6 @@
   <div class="tab-content show" id="tab1" data-controller="slider" data-target="tab.panel">
     <h2>Notes</h2>
     <%= form_with(model: @review, url: reviews_path, local: true) do |f| %>
-      <%= f.label :content, "" %>
       <%= f.text_area :content, placeholder: "Leave a note to yourself...", class: "container" %>
       <%= f.hidden_field :meal_id, value: params[:meal_id] %>
       <%= f.submit "Submit", class: "btn btn-success" %>

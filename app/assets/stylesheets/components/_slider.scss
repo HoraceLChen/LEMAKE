@@ -14,7 +14,7 @@
 }
 
 .tab-button {
-  padding: 5px 53px;
+  padding: 2px 53px;
   border: 2px solid transparent;
   border-radius: 22px;
   background-color: $white;
@@ -32,7 +32,7 @@
 
 .tab-button.active {
   background-color: $orange;
-  border: 2px solid $black;
+  border-radius: 22px;
   top: 0;
   z-index: 0;
   transition: transform 0.3s ease-in-out;
@@ -45,4 +45,5 @@
 
 .tab-content.show {
   display: block; /* Show active tab content */
+  margin-top: 12px;
 }

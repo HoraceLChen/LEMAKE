@@ -10,17 +10,17 @@
 
 #tab1{
   padding: 20px;
-  border: 2px solid #000;
+  border: 2px solid $black;
   border-radius: 10px;
-  background-color: rgb(244, 244, 244);
+  background-color: $white;
   margin-bottom: 20px;
 }
 
 #tab2{
   padding: 20px;
-  border: 2px solid #000;
+  border: 2px solid $black;
   border-radius: 10px;
-  background-color: rgb(244, 244, 244);
+  background-color: $white;
 }
 
 .btn-review{
