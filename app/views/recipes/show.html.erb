@@ -37,19 +37,14 @@
 
   <div class="main">
     <div class="btn-box">
-      <button class="tab active" id="tab1" data-panel="#one">Notes</button>
-      <button class="tab" id="tab2" data-panel="#two">Gallery</button>
+      <button class="tab-button active" data-tab="tab1" data-controller="slider" data-panel="#tab1" data-action="click->slider#changeTab">Notes</button>
+      <button class="tab-button" data-tab="tab2" data-controller="slider" data-panel="#tab2" data-action="click->slider#changeTab">Gallery</button>
       <div class="slider"></div>
     </div>
 
-  <div class="content show" id="container-notes">
+  <div class="tab-content show" id="tab1" data-controller="slider" data-target="tab.panel">
     <h2>Notes</h2>
     <%= form_with(model: @review, url: reviews_path, local: true) do |f| %>
-    <%# <div class="star-rating mb-3">
-    <% 5.times do |i| %>
-      <%# <%= f.radio_button :rating, i + 1, checked: i == 2 %>
-    <%# <% end %>
-    <%# </div>   %>
       <%= f.label :content, "" %>
       <%= f.text_area :content, placeholder: "Leave a note to yourself...", class: "container" %>
       <%= f.hidden_field :meal_id, value: params[:meal_id] %>
@@ -62,7 +57,7 @@
       <% end %>
   </div>
 
-  <div class="content" id="container-gallery">
+  <div class="tab-content" id="tab2" data-controller="slider" data-target="tab.panel">
     <div class=""> <h2>Gallery</h2>
       <%= form_with(model: @meal, url: upload_photo_meal_path(id: @meal), local: true, html: {'data-controller': 'upload'}) do |f| %>
         <%= f.label :photo, '📷 Upload your photo', class: 'upload-photo' %>

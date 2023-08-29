@@ -1,24 +1,28 @@
-// Variables
-const tabs = document.querySelectorAll('.tab');
+import { Controller } from "@hotwired/stimulus";
 
-// Functions
-const changeTab = (event) => {
-  // remove class ".active" from the current active tab
-  document.querySelector('.active').classList.remove('active');
+export default class extends Controller {
+  static targets = ["tab", "panel"];
 
-  // add class ".active" to the clicked tab
-  event.currentTarget.classList.add('active');
+  connect() {
+    console.log("here");
+    this.tabTargets.forEach(tab => {
+      tab.addEventListener("click", this.changeTab.bind(this));
+    });
+  }
 
-  // remove class ".show" from the current active panel
-  document.querySelector('.show').classList.remove('show');
+  changeTab(event) {
+      // remove class ".active" from the current active tab
+      document.querySelector('.active').classList.remove('active');
 
-  // add class ".show" to the corresponding new active's tab panel
+      // add class ".active" to the clicked tab
+      event.currentTarget.classList.add('active');
 
-  document.querySelector(event.currentTarget.dataset.panel).classList.add('show');
+      // remove class ".show" from the current active panel
+      document.querySelector('.show').classList.remove('show');
 
-};
-
-// Event Listeners
-tabs.forEach((tab) => {
-  tab.addEventListener('click', changeTab);
-});
+      // add class ".show" to the corresponding new active's tab panel
+      document
+        .querySelector(event.currentTarget.dataset.panel)
+        .classList.add('show');
+    };
+}

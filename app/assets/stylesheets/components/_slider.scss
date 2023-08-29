@@ -13,7 +13,7 @@
   overflow: hidden;
 }
 
-.tab {
+.tab-button {
   padding: 5px 53px;
   border: 2px solid transparent;
   border-radius: 22px;
@@ -22,16 +22,27 @@
   text-align: center;
   flex: 1;
   outline: none;
+  height: 11.8%;
+  width: 50.3333%;
 }
 
-.content {
+.tab-content {
   padding: 20px;
 }
 
-.slider {
-  position: absolute;
-  bottom: 0;
-  height: 2px;
+.tab-button.active {
   background-color: $orange;
+  border: 2px solid $black;
+  top: 0;
+  z-index: 0;
   transition: transform 0.3s ease-in-out;
+}
+
+.tab-content {
+  display: none; /* Hide all tab content sections by default */
+  padding: 20px;
+}
+
+.tab-content.show {
+  display: block; /* Show active tab content */
 }
