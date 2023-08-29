@@ -9,14 +9,16 @@
       </div>
       <div class="d-flex justify-content-evenly" data-controller="form-increment">
         <i class="fa-solid fa-circle-minus fa-2x" style="color: #878787;" data-action="click->form-increment#timeDown"></i>
+        <div class=" text-center ">
         <%= f.input :time_preference, label: false, input_html: { class: "index-input", data: { form_increment_target: "input"}, value: @meal.people_preference.nil? ? 30 : @meal.time_preference } %>
-        <p class="mt-2">mins</p>
+          mins
+        </div>
         <i class="fa-solid fa-circle-plus fa-2x" style="color: #fcd444;" data-action="click->form-increment#timeUp"></i>
       </div>
     </div>
     <div class="card-preference">
       <div class="text-center mb-4 preference-title">
-        <h4>People Available</h4>
+        <h4>Number of People</h4>
       </div>
       <div class="d-flex justify-content-evenly" data-controller="form-increment">
         <i class="fa-solid fa-circle-minus fa-2x" style="color: #878787;" data-action="click->form-increment#peopleDown"></i>

@@ -111,6 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_013318) do
     t.text "favoritable_score"
     t.text "favoritable_total"
     t.string "steps", default: [], array: true
+    t.integer "spoonacular_id"
   end
 
   create_table "reviews", force: :cascade do |t|
