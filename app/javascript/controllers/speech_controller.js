@@ -15,7 +15,7 @@ export default class extends Controller {
     recognition.start();
     recognition.onresult = (event) => {
       console.log(event.results[0][0].transcript)
-      const recordedIngredients = event.results[0][0].transcript.split(" ")
+      const recordedIngredients = event.results[0][0].transcript.split(" and ")
       console.log(recordedIngredients)
       recordedIngredients.forEach(ingredient => {
         const url = this.formTarget.action
