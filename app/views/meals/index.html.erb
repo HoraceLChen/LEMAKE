@@ -1,14 +1,14 @@
-<div class="container-sm">
-  <%= image_tag "logo.png", class: "small-logo" %>
-  <h2 class="mt-4 mb-4">Welcome back! <%= image_tag "logo.png", class: "small-logo" %></h2>
-  <p>Explore our premier recipes of the week or uncover a personalized recipe based on the ingredients you currently have at home.</p>
-  <div class="small-card">
-    <%= image_tag @recipe.image, class: "card-img-top" %>
-    <div class="card-body">
-      <h5 class="card-title"><%= @recipe.title %></h5>
-      <p class="card-text"><%= @recipe.content %></p>
-      <a href="#" class="btn btn-success">COOK</a>
-    </div>
+<div class="container-body">
+  <div class="title-card">
+    <%= image_tag "logo.png", class: "small-logo" %>
+    <h2 class="mt-2 mb-2">Hi Sam!</h2> <%= image_tag "logo.png", class: "small-logo" %>
+    <p class="p-text">Welcome back! <br> What shall we cook today?</p>
   </div>
-</div>
-<%= render "shared/navbar" %>
+  <div>
+    <h3 class="menu-text"> I want something quick</h3>
+  </div>
+  <%= render "shared/recipe_card" %>
+  <%= render "shared/recipe_card" %>
+  <%= render "shared/recipe_card" %>
+  </div>
+  <%= render "shared/navbar" %>

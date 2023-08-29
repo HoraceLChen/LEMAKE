@@ -6,6 +6,7 @@
   padding-left: 22px;
   padding-right: 22px;
   border-width: 2px;
+  height: fit-content;
 }
 
 .btn-primary:hover {
@@ -29,13 +30,13 @@
   background-color: $orange;
   border-color: $black;
   border-width: 2px;
+  border-radius: 1.5rem;
+  height: fit-content;
 }
 
 .upload-photo {
-  border: 1px solid #d3d3d3;
-  padding: 16px 24px;
-  cursor: pointer;
-  font-weight: 500;
-  background: $light-yellow;
-  border-radius: 2px;
+  border: 2px solid $black;
+  padding: 8px 84px;
+  background: $orange;
+  border-radius: 8px;
 }

@@ -1,33 +1,27 @@
 <div class="navbar">
-  <div class="container-fluid">
-
-    <ul class="nav-links">
-      <div class="container text-center">
-        <div class="row d-flex justify-content-evenly">
-          <div class="col">
-            <li>
+  <div>
               <%= link_to "#" do %>
-                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-house fa-xl" style="color: #50324a;"></i>
               <% end %>
-            </li>
-          </div>
-          <div class="col">
-            <li>
+  </div>
+  <div>
+              <%= link_to "#" do %>
+                <i class="fa-solid fa-user fa-xl" style="color: #50324a;"></i>
+              <% end %>
+              </div>
+                <div>
               <%= link_to meals_path, id:"cookbtn", data: {turbo_method: "POST"} do %>
-                <i class="fa-solid fa-bowl-food"></i>
+                <i class="fa-solid fa-utensils fa-beat fa-2xl" style="color: #504346; --fa-animation-delay: 1s; --fa-animation-duration: 2s; --fa-animation-iteration-count: 5;"></i>
               <% end %>
-            </li>
-          </div>
-          <div class="col">
-            <li>
+              </div>
+              <div>
               <%= link_to "#" do %>
-                <i class="fa-regular fa-bookmark"></i>
+                <i class="fa-solid fa-heart fa-xl" style="color: #50324a;"></i>
               <% end %>
-            </li>
-          </div>
-        </div>
-      </div>
-    </ul>
-
+              </div>
+              <div>
+              <%= link_to "#" do %>
+                <i class="fa-solid fa-gear fa-xl" style="color: #50324a;"></i>
+              <% end %>
   </div>
 </div>

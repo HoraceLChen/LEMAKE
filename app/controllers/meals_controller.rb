@@ -1,9 +1,9 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:edit, :update, :upload_photo]
+  before_action :set_meal, only: [:edit, :update, :upload_photo, :save_recipe]
 
 
   def index
-    @recipe = Recipe.first
+    @recipe = Recipe.all.sample
   end
 
   def create
@@ -35,11 +35,19 @@ class MealsController < ApplicationController
     redirect_to meal_recipes_path(@meal)
   end
 
+  def save_recipe
+    recipe = Recipe.find(params[:meal][:recipe_id])
+    if @meal.update(meal_params)
+     redirect_to meal_recipe_path(@meal, recipe)
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def meal_params
-    params.require(:meal).permit(:user_id, :photo, :time_preference, :people_preference, :cuisine_preference)
-
+    params.require(:meal).permit(:user_id, :photo, :time_preference, :people_preference, :cuisine_preference, :recipe_id)
   end
 
   def set_meal
