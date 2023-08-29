@@ -1,0 +1,25 @@
+<div class="container-ingredients-index">
+  <div class="d-flex justify-content-center align-items-center mt-3">
+    <h1>What do we have?</h1>
+  </div>
+  <div class="container-ingredients-card">
+    <div class="text-center mb-4 card-title">
+      <h3>Your ingredients</h3>
+    </div>
+
+  </div>
+  <div class="card-add-ingredient">
+    <div class="text-center mb-4 card-title">
+      <h3>Add an Ingredient</h3>
+    </div>
+    <%# <div class="form">
+      <%= simple_form_for [current_user, @pantry_ingredient], url: pantry_user_path(current_user) do |f|
+        <%= f.simple_fields_for :ingredient, @ingredient do |i_f|
+          <%= i_f.input :name, label:false, placeholder: "Type ingredient here!", input_html: { class: "ingredient-input"}
+        <% end
+        <%= f.submit 'Add Ingredient', class: "mx-auto d-block btn-add-ingredient"
+      <% end
+    </div> %>
+  </div>
+  <%= link_to "Done!", root_path, class: "mx-auto d-block btn-continue" %>
+</div>

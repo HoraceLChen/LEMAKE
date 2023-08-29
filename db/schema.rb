@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_24_085616) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_28_024021) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +79,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_085616) do
     t.index ["user_id"], name: "index_meals_on_user_id"
   end
 
+  create_table "pantry_ingredients", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_pantry_ingredients_on_ingredient_id"
+    t.index ["user_id"], name: "index_pantry_ingredients_on_user_id"
+  end
+
   create_table "recipe_ingredients", force: :cascade do |t|
     t.integer "serving"
     t.bigint "ingredient_id", null: false
@@ -139,6 +148,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_085616) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "meals", "recipes"
   add_foreign_key "meals", "users"
+  add_foreign_key "pantry_ingredients", "ingredients"
+  add_foreign_key "pantry_ingredients", "users"
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "reviews", "meals"

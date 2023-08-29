@@ -3,6 +3,15 @@ Rails.application.routes.draw do
 
   authenticated :user do
     root 'meals#index', as: :authenticated_root
+
+    resources :users, only: [] do
+      member do
+        get 'pantry', to: 'pantry_ingredients#index'
+        # post 'pantry', to: 'pantry_ingredients#create'
+      end
+    end
+
+    resources :pantry_ingredients, only: [:destroy]
   end
 
   root to: "pages#home"
@@ -20,4 +29,6 @@ Rails.application.routes.draw do
   resources :uploaded_ingredients, only: [:destroy]
   resources :ingredients, only: [:create]
   resources :reviews, only: [:create]
+
+
 end

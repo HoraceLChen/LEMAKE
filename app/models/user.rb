@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :meals
   has_many :recipes, through: :meals
   has_many :uploaded_ingredients, through: :meals
+  has_many :pantry_ingredients, dependent: :destroy
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   # add validation for @email.com to email field
   acts_as_favoritor
