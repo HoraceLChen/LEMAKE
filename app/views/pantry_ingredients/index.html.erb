@@ -1,0 +1,50 @@
+<div class="container-ingredients-index">
+  <div class="d-flex justify-content-center align-items-center mt-3">
+    <h1>What do we have?</h1>
+  </div>
+  <div class="container-ingredients-card">
+    <div class="text-center mb-4 card-title">
+      <h3>Your ingredients</h3>
+    </div>
+    <% current_user.pantry_ingredients.each do |ingredient| %>
+      <%= ingredient.ingredient.name.titleize%> - <%= ingredient.ingredient.category  %>
+    <% end %>
+
+  <%= form_with url: pantry_user_path, method: :post do %>
+
+  <% @ingredients_by_category.each do |category, ingredients| %>
+    <fieldset>
+      <legend><%= category %></legend>
+
+      <% ingredients.each do |ingredient| %>
+        <div>
+          <%= check_box_tag "selected_ingredients[]", ingredient.id, @user_ingredient_ids.include?(ingredient.id) %>
+          <%= label_tag "selected_ingredients_#{ingredient.id}", ingredient.name %>
+        </div>
+      <% end %>
+
+    </fieldset>
+  <% end %>
+
+  <%= submit_tag "Submit", class:  "mx-auto d-block btn-continue"  %>
+
+<% end %>
+
+  </div>
+  <div class="card-add-ingredient">
+    <div class="text-center mb-4 card-title">
+      <h3>Add an Ingredient</h3>
+    </div>
+    <%= form_with url: pantry_user_path, method: :get, class: "d-flex"  %>
+    <%= text_field_tag :q,
+            params[:q],
+            class: "form-control",
+            placeholder: "Type a keyword"
+    %>
+  <%= submit_tag "Search", name: "", class:  "mx-auto d-block btn-continue" %>
+  <% @lol.each do |hit|%>
+    <%= link_to hit["name"], pantry_user_path(ingredient_name: hit["name"]), data: {turbo_method: :post} %>
+  <% end %>
+  </div>
+
+</div>
