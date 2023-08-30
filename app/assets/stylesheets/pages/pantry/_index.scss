@@ -1,0 +1,23 @@
+.check-button{
+  position: absolute;
+  transform: scale(0);
+}
+
+.check-button + label{
+  cursor: pointer;
+  background-color: white;
+  border: solid ;
+  border-radius: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 5px;
+}
+.check-button:checked + label{
+  cursor: pointer;
+  background-color: rgb(252, 212, 93);
+  border: solid ;
+  border-radius: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 5px;
+}
