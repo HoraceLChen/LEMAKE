@@ -18,13 +18,13 @@
         </div>
       </div>
       <div class="card-recipe-infos my-4">
-        <div class="flex d-flex justify-content-evenly">
+        <div class="flex d-flex justify-content-between mx-2">
           <p><i class="fa-solid fa-plate-wheat me-2"></i><%= recipe.cuisine %></p>
           <p><i class="fa-solid fa-user-group me-2"></i><%= recipe.people %></p>
           <p><i class="fa-regular fa-clock me-2"></i><%= recipe.time %>min</p>
         </div>
         <div class="flex d-flex justify-content-evenly">
-          <h4 class="ms-2 me-2"><%= recipe.title %></h4>
+          <h4 class="flex-grow-1 ms-2 me-2"><%= recipe.title %></h4>
           <%= link_to("COOK", save_recipe_meal_path(@meal, recipe: recipe), class: "btn btn-success me-2", data:{turbo_method: :patch}) %>
         </div>
       </div>
