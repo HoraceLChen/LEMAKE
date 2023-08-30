@@ -21,12 +21,13 @@
 
   <% @recipes.each do |recipe| %>
     <div class="card-recipe">
-      <img src=<%= recipe.image %> />
       <div class="card-recipe-infos my-4">
         <h4 class="align-text-center"><%= recipe.title %></h4>
         <%# <p><i class="fa-solid fa-pen me-2"></i><%= recipe.content %>
         <div class="flex d-flex justify-content-evenly">
-          <p><i class="fa-solid fa-plate-wheat me-2"></i><%= recipe.cuisine %></p>
+          <p><i class="fa-solid fa-plate-wheat me-2"></i><%= recipe.content %></p>
+          <p><%= recipe.steps %></p>
+          <p><%= recipe.ings %></p>
           <p><i class="fa-solid fa-user-group me-2"></i><%= recipe.people %></p>
           <p><i class="fa-regular fa-clock me-2"></i><%= recipe.time %>minutes.</p>
         </div>
