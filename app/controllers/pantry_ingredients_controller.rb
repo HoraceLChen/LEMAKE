@@ -15,18 +15,17 @@ class PantryIngredientsController < ApplicationController
   end
 
   def create
-    if params[:ingredient_name].present?
+    ingredient = Ingredient.find_by(id: params[:ingredient][:id])
+    pantry_ingredient = current_user.pantry_ingredients.find_by(ingredient: ingredient)
+    if pantry_ingredient.nil?
       pantry_ingredient = PantryIngredient.new
-      ingredient = Ingredient.find_by(name: params[:ingredient_name])
       pantry_ingredient.ingredient = ingredient
       pantry_ingredient.user = current_user
       pantry_ingredient.save
-      redirect_to pantry_user_path
+      head :created
     else
-      params[:selected_ingredients].each do |ingredient|
-        PantryIngredient.find_or_create_by(ingredient: Ingredient.find(ingredient), user: current_user)
-      end
-      redirect_to pantry_user_path
+      pantry_ingredient.destroy
+      head :ok
     end
   end
 end
