@@ -10,7 +10,7 @@
     <%# /////// %>
     <div class="pantry_ingredients">
       <% current_user.pantry_ingredients.each do |ingredient| %>
-        <%= ingredient.ingredient.category  %> - <%= ingredient.ingredient.name.titleize%>
+        <%= ingredient.ingredient.category %> - <%= ingredient.ingredient.name.titleize %>
       <% end %>
     </div>
     <%# /////// %>
@@ -20,8 +20,8 @@
           <legend><%= category %></legend>
           <% ingredients.sort_by(&:name).each do |ingredient| %>
             <%= form_with url: pantry_user_path, method: :post, data: { controller: 'autosave'} do |f| %>
-              <div>
-                <input type="checkbox" id="ingredient-select-<%= ingredient.id %>" class="check-button"  data-action='change->autosave#save' <%= "checked" if @user_ingredient_ids.include?(ingredient.id) %> >
+              <div class="d-flex justify-content-evenly">
+                <input type="checkbox" id="ingredient-select-<%= ingredient.id %>" class="check-box"  data-action='change->autosave#save' <%= "checked" if @user_ingredient_ids.include?(ingredient.id) %> >
                 <label for="ingredient-select-<%= ingredient.id %>" ><%= ingredient.name %></label>
                 <input type="hidden" id="" class=""  value="<%= ingredient.id %>" name="ingredient[id]" checked>
               </div>
