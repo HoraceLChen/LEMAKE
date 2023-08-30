@@ -15,7 +15,7 @@ class UploadedIngredientsController < ApplicationController
     @uploaded_ingredient.meal = @meal
     if @uploaded_ingredient.save
       respond_to do |format|
-        format.html { redirect_to meal_uploaded_ingredient_path(@meal) }
+        format.html { redirect_to meal_uploaded_ingredients_path(@meal) }
         format.text { render partial: "uploaded_ingredients/uploaded_ingredient", locals: { uploaded_ingredient: @uploaded_ingredient }, formats: [:html] }
       end
     else
