@@ -1,3 +1,22 @@
+.pantry_ingredients-card{
+  border: solid ;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: white;
+  // position: -webkit-sticky;
+  // position: sticky;
+  // top: 0;
+}
+
+.added-ingredients{
+  background-color: rgb(252, 212, 93);
+  border: solid ;
+  border-radius: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 5px;
+}
+
 .check-box{
   position: absolute;
   transform: scale(0);
@@ -10,10 +29,9 @@
   border-radius: 20px;
   padding-left: 5px;
   padding-right: 5px;
-  margin-right: 5px;
-  margin-bottom: 5px;
   margin: 5px;
 }
+
 .check-box:checked + label{
   cursor: pointer;
   background-color: rgb(252, 212, 93);
@@ -23,3 +41,9 @@
   padding-right: 5px;
   margin: 5px;
 }
+
+// .card-pantry{
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
