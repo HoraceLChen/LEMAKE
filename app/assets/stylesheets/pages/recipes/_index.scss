@@ -9,7 +9,6 @@
   border-radius: 8px;
   border: 2px solid $black;
   background-color: $white;
-  padding-bottom: 4px;
 }
 
 .card-recipe-image{
@@ -18,8 +17,4 @@
   border-bottom: 2px solid $black;
   width: 100%;
   height: 12.5rem;
-}
-
-.card-recipe-infos {
-  justify-content: space-between;
 }
