@@ -6,17 +6,17 @@
 
   <% @recipes.each do |recipe| %>
     <div class="card-recipe">
-      <img src=<%= recipe.image %> />
+      <div class="card-recipe-image" style="background-image: url('<%= recipe.image %>');"></div>
       <div class="card-recipe-infos my-4">
-        <h4 class="align-text-center"><%= recipe.title %></h4>
-        <%# <p><i class="fa-solid fa-pen me-2"></i><%= recipe.content %>
         <div class="flex d-flex justify-content-evenly">
           <p><i class="fa-solid fa-plate-wheat me-2"></i><%= recipe.cuisine %></p>
           <p><i class="fa-solid fa-user-group me-2"></i><%= recipe.people %></p>
-          <p><i class="fa-regular fa-clock me-2"></i><%= recipe.time %>minutes.</p>
+          <p><i class="fa-regular fa-clock me-2"></i><%= recipe.time %>min</p>
         </div>
-             <div class="d-grid gap-2" data-controller="favourites">
-          <%= link_to("See recipe", save_recipe_meal_path(@meal, recipe: recipe), class: "btn btn-success", data:{turbo_method: :patch}) %>
+        <h4 class="d-flex justify-content-center ps-2 pe-2"><%= recipe.title %></h4>
+        <%# <p><i class="fa-solid fa-pen me-2"></i><%= recipe.content %>
+        <div class="d-flex align-items-center" data-controller="favourites">
+          <%= link_to("COOK", save_recipe_meal_path(@meal, recipe: recipe), class: "btn btn-success", data:{turbo_method: :patch}) %>
           <%= link_to(current_user.favorited?(recipe) ? "Unfavourite" : "Favourite","#", class: "btn btn-success", data: {url: favourite_toggle_meal_path(id: @meal, recipe: recipe), favourites_target: "favouriteLink", action: "favourites#toggle" }) %>
         <%# , favourites_target: "button", action: "favourites#select"  %>
         </div>

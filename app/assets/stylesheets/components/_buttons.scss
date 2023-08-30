@@ -36,7 +36,7 @@
 
 .upload-photo {
   border: 2px solid $black;
-  padding: 8px 84px;
+  padding: 8px 61px;
   background: $orange;
   border-radius: 8px;
 }
@@ -47,6 +47,6 @@
   background-color: $white;
   padding: 16px;
   font-size: larger;
-  border: 2px solid $black;
-  border-radius: 8px;
+  border: 0.3px solid rgba(181, 181, 181, 0.456);
+  border-radius: 20px;
 }
