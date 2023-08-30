@@ -14,10 +14,15 @@
   border-radius: 0px 0px 16px 16px;
   border: 2px solid $black;
   width: 100%;
-  height: 5rem;
   padding: 0.625rem;
   justify-content: space-between;
 }
+
+.recipe-card-cuisines {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .recipe-card-content.title {
   margin-top: 4px;
   width: 66%;
@@ -45,6 +50,7 @@
   padding: 8px;
   border-radius: 20px;
   border-color: $black;
+  color: rgb(253, 52, 103);
 }
 .card-image {
   width: 100%;

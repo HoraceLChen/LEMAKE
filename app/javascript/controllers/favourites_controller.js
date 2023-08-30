@@ -21,10 +21,13 @@ export default class extends Controller {
     })
     .then(response => {
       if (response.ok) {
-        if (this.favouriteLinkTarget.textContent.trim() === "Favourite") {
-          this.favouriteLinkTarget.textContent = "Unfavourite";
+        const heartIcon = this.favouriteLinkTarget.querySelector('i'); // Assuming the icon is an <i> element inside the link
+        if (heartIcon.classList.contains('fa-regular')) {
+          heartIcon.classList.remove('fa-regular');
+          heartIcon.classList.add('fa-solid');
         } else {
-          this.favouriteLinkTarget.textContent = "Favourite";
+          heartIcon.classList.remove('fa-solid');
+          heartIcon.classList.add('fa-regular');
         }
       } else {
       console.error('Error:', response.statusText);
