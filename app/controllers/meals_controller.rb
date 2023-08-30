@@ -36,7 +36,7 @@ class MealsController < ApplicationController
   end
 
   def save_recipe
-    recipe = Recipe.find(params[:meal][:recipe_id])
+    recipe = Recipe.find(params[:recipe_id])
     if @meal.update(meal_params)
      redirect_to meal_recipe_path(@meal, recipe)
     else
