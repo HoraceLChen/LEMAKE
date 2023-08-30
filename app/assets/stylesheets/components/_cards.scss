@@ -14,14 +14,21 @@
   border-radius: 0px 0px 16px 16px;
   border: 2px solid $black;
   width: 100%;
-  height: 5rem;
   padding: 0.625rem;
   justify-content: space-between;
 }
-.recipe-card-content .title {
+
+.recipe-card-cuisines {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.recipe-card-content.title {
+  margin-top: 4px;
   width: 66%;
   height: 1.5rem;
-  font-size: 50vw;
+  font-weight: 400;
+  // font-size: 50vw;
 }
 .recipe-card-image {
   background-size: cover;
@@ -31,6 +38,19 @@
   border-right: 2px solid $black;
   width: 100%;
   height: 12.5rem;
+}
+
+.like-count{
+  display: inline-block;
+  font-size: small;
+  position: relative;
+  margin: 8px;
+  background-color: $white;
+  border: 2px solid;
+  padding: 8px;
+  border-radius: 20px;
+  border-color: $black;
+  color: rgb(253, 52, 103);
 }
 .card-image {
   width: 100%;

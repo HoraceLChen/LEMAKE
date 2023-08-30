@@ -2,7 +2,7 @@ class UploadedIngredientsController < ApplicationController
   before_action :set_meal, only: [:index, :create]
 
   def index
-    @uploaded_ingredients = @meal.uploaded_ingredients
+    @uploaded_ingredients = @meal.uploaded_ingredients.includes([:ingredient])
     @uploaded_ingredient = UploadedIngredient.new
     @ingredient_new = Ingredient.new
   end
@@ -15,7 +15,7 @@ class UploadedIngredientsController < ApplicationController
     @uploaded_ingredient.meal = @meal
     if @uploaded_ingredient.save
       respond_to do |format|
-        format.html { redirect_to meal_uploaded_ingredient_path(@meal) }
+        format.html { redirect_to uploaded_ingredient_path(@meal) }
         format.text { render partial: "uploaded_ingredients/uploaded_ingredient", locals: { uploaded_ingredient: @uploaded_ingredient }, formats: [:html] }
       end
     else

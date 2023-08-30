@@ -36,13 +36,15 @@ class MealsController < ApplicationController
   end
 
   def save_recipe
-    recipe = Recipe.find(params[:recipe_id])
-    if @meal.update(meal_params)
-     redirect_to meal_recipe_path(@meal, recipe)
+    recipe = Recipe.find(params[:recipe])
+    @meal.recipe_id = recipe.id
+    if @meal.save
+      redirect_to meal_recipe_path(@meal, recipe)
     else
       render :index, status: :unprocessable_entity
     end
   end
+
 
   private
 

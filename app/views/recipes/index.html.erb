@@ -1,41 +1,35 @@
-<div class="container">
-  <h1 class="d-flex justify-content-center align-items-center">Here are your recipes!</h2>
-  <% @fixed_recipe %>
-  <div class="card-recipe">
-      <img src=<%= @fixed_recipe.image %> />
-      <div class="card-recipe-infos my-4">
-        <h4 class="align-text-center"><%= @fixed_recipe.title %></h4>
-        <%# <p><i class="fa-solid fa-pen me-2"></i><%= recipe.content %>
-        <div class="flex d-flex justify-content-evenly">
-        <p><i class="fa-solid fa-plate-wheat me-2"></i><%= @fixed_recipe.cuisine %></p>
-          <p><i class="fa-solid fa-user-group me-2"></i><%= @fixed_recipe.people %></p>
-          <p><i class="fa-regular fa-clock me-2"></i><%= @fixed_recipe.time %>hours.</p>
-        </div>
-             <div class="d-grid gap-2" data-controller="favourites">
-          <%= link_to("See recipe", meal_recipe_path(@meal, @fixed_recipe), class: "btn btn-success") %>
-          <%= link_to(current_user.favorited?(@fixed_recipe) ? "Unfavourite" : "Favourite","#", class: "btn btn-success", data: {url: favourite_toggle_meal_path(id: @meal, recipe: @fixed_recipe), favourites_target: "favouriteLink", action: "favourites#toggle" }) %>
-        <%# , favourites_target: "button", action: "favourites#select"  %>
-        </div>
-      </div>
-    </div>
+<div class="container-body">
+  <div class="title-card mb-4">
+    <%= image_tag "logo.png", class: "small-logo" %>
+    <h2 class="mt-2 mb-2">Here is what I've found for you!</h2> <%= image_tag "logo.png", class: "small-logo" %>
+  </div>
 
   <% @recipes.each do |recipe| %>
     <div class="card-recipe">
-      <img src=<%= recipe.image %> />
+      <div class="card-recipe-image" style="background-image: url('<%= recipe.image %>');">
+        <div class="like-container" data-controller="favourites">
+          <%= link_to("#", class: "like", data: {
+            url: favourite_toggle_meal_path(id: @meal, recipe: recipe),
+            favourites_target: "favouriteLink",
+            action: "favourites#toggle"
+          }) do %>
+            <i class="fa <%= current_user.favorited?(recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %>"></i>
+          <% end %>
+        </div>
+      </div>
       <div class="card-recipe-infos my-4">
-        <h4 class="align-text-center"><%= recipe.title %></h4>
-        <%# <p><i class="fa-solid fa-pen me-2"></i><%= recipe.content %>
-        <div class="flex d-flex justify-content-evenly">
+        <div class="flex d-flex justify-content-between mx-2">
           <p><i class="fa-solid fa-plate-wheat me-2"></i><%= recipe.cuisine %></p>
           <p><i class="fa-solid fa-user-group me-2"></i><%= recipe.people %></p>
-          <p><i class="fa-regular fa-clock me-2"></i><%= recipe.time %>minutes.</p>
+          <p><i class="fa-regular fa-clock me-2"></i><%= recipe.time %>min</p>
         </div>
-             <div class="d-grid gap-2" data-controller="favourites">
-          <%= link_to("See recipe", meal_recipe_path(@meal, recipe), class: "btn btn-success") %>
-          <%= link_to(current_user.favorited?(recipe) ? "Unfavourite" : "Favourite","#", class: "btn btn-success", data: {url: favourite_toggle_meal_path(id: @meal, recipe: recipe), favourites_target: "favouriteLink", action: "favourites#toggle" }) %>
-        <%# , favourites_target: "button", action: "favourites#select"  %>
+        <div class="flex d-flex justify-content-evenly">
+          <h4 class="flex-grow-1 ms-2 me-2"><%= recipe.title %></h4>
+          <%= link_to("COOK", save_recipe_meal_path(@meal, recipe: recipe), class: "btn btn-success me-2", data:{turbo_method: :patch}) %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+
+<%= render "shared/navbar" %>

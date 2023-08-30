@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         get 'pantry', to: 'pantry_ingredients#index'
         post 'pantry', to: 'pantry_ingredients#create'
         get 'bookmarks', to: 'bookmarks#index'
+        post 'bookmarks', to: 'bookmarks#open_recipe'
 
       end
     end
