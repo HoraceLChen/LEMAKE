@@ -2,7 +2,7 @@ class UploadedIngredientsController < ApplicationController
   before_action :set_meal, only: [:index, :create]
 
   def index
-    @uploaded_ingredients = @meal.uploaded_ingredients
+    @uploaded_ingredients = @meal.uploaded_ingredients.includes([:ingredient])
     @uploaded_ingredient = UploadedIngredient.new
     @ingredient_new = Ingredient.new
   end

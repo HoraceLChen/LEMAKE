@@ -36,7 +36,31 @@
 
 .upload-photo {
   border: 2px solid $black;
-  padding: 8px 84px;
+  padding: 8px 61px;
   background: $orange;
   border-radius: 8px;
+}
+
+#mic {
+  display: flex;
+  margin-top: 16px;
+  background-color: $white;
+  padding: 16px;
+  font-size: larger;
+  border: 0.3px solid rgba(181, 181, 181, 0.456);
+  border-radius: 20px;
+}
+
+.like {
+  text-decoration: none;
+  font-size: 24px;
+  // padding: 4px;
+  color: rgb(253, 52, 103);
+  position: relative;
+  padding: 8px 12px 8px 12px; /* top right bottom left; */
+  margin: 8px;
+  background-color: $white;
+  border: 2px solid;
+  border-radius: 50%;
+  border-color: $black;
 }

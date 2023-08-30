@@ -13,7 +13,7 @@
   border-radius: 10px;
   padding: 20px;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  background-color: rgb(244, 244, 244);
+  background-color: $white;
 
   .ingredients-card{
     padding: 5px;
@@ -40,7 +40,7 @@
   padding: 20px;
   border: 2px solid #000;
   border-radius: 10px;
-  background-color: rgb(244, 244, 244);
+  background-color: $white;
 
   .btn-add-ingredient {
     color: rgb(56, 56, 56);
@@ -50,7 +50,7 @@
     background-color: $yellow;
     padding: 6px;
     border-width: 2px;
-    border-radius: 30px;
+    border-radius: 8px;
     width: 100%;
     height: fit-content;
   }
@@ -68,7 +68,7 @@
   font-size: 18pt;
   width: 100%;
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 8px;
   text-decoration: none;
   text-align: center;
   margin: 50px;

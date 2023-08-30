@@ -55,10 +55,10 @@ class RecipesController < ApplicationController
   def show
     @review = Review.new
     @meal = Meal.find(params[:meal_id])
-    api_key = ENV['SPOONACULAR_API_KEY']
-    recipe = @meal.recipe.spoonacular_id
-    service = SpoonacularServiceRecipe.new(api_key, recipe)
-    @recipes = service.search_by_recipe(recipe)
+    # api_key = ENV['SPOONACULAR_API_KEY']
+    # recipe = @meal.recipe.spoonacular_id
+    # service = SpoonacularServiceRecipe.new(api_key, recipe)
+    # @recipes = service.search_by_recipe(recipe)
   end
 
   private

@@ -1,6 +1,7 @@
 <div class="container-meal-preference">
-  <div class="d-flex justify-content-center align-items-center mt-3 mb-5">
-    <h1>Tell me more!</h1>
+  <div class="title-card mb-4">
+    <%= image_tag "logo.png", class: "small-logo" %>
+    <h3 class="mt-2 mb-2">Tell me more</h3> <%= image_tag "logo.png", class: "small-logo" %>
   </div>
   <div class="card-preference">
     <%= simple_form_for @meal do |f| %>
@@ -31,3 +32,4 @@
     <%= f.submit 'Done!', class: "mx-auto d-block card-done" %>
   <% end %>
 </div>
+<%= render "shared/navbar" %>
