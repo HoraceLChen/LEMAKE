@@ -44,13 +44,13 @@
 
   <div class="tab-content show" id="tab1" data-controller="slider" data-target="tab.panel">
     <h2>Notes</h2>
-    <%= form_with(model: @review, url: reviews_path, local: true) do |f| %>
+    <%= form_with(model: @review, url: reviews_path, local: true, html: { 'data-controller': 'reviews', 'data-target': 'reviews.form', 'data-action': 'reviews#submit' }) do |f| %>
       <%= f.text_area :content, placeholder: "Tried this with a pinch of extra cinnamon – turned out amazing! ", class: "container pb-3" %>
       <%= f.hidden_field :meal_id, value: params[:meal_id] %>
       <%= f.submit "Submit", class: "btn btn-success" %>
     <% end %>
     <% @recipe.reviews.each do |review| %>
-      <div id="notes">
+      <div id="notes" data-target="reviews.notes">
         <%= review.content %>
       </div>
       <% end %>
