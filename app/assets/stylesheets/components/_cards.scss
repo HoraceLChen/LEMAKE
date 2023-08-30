@@ -35,7 +35,15 @@
 }
 
 .like-count{
+  display: inline-block;
   font-size: small;
+  position: relative;
+  margin: 8px;
+  background-color: $white;
+  border: 2px solid;
+  padding: 8px;
+  border-radius: 20px;
+  border-color: $black;
 }
 .card-image {
   width: 100%;

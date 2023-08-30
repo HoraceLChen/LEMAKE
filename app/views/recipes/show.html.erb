@@ -31,7 +31,7 @@
   <div class="d-flex justify-content-center align-items-center mb-5">
     <%= simple_form_for @meal do |f| %>
       <%= f.input :recipe_id, as: :hidden, input_html: { value: @recipe.id} %>
-      <%= f.submit 'Finished!', class: 'btn-finish' %>
+      <%= f.submit 'Back to recipes', class: 'btn-finish' %>
     <% end %>
   </div>
 
