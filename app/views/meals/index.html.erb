@@ -1,14 +1,24 @@
 <div class="container-body">
   <div class="title-card">
     <%= image_tag "logo.png", class: "small-logo" %>
-    <h2 class="mt-2 mb-2">Hi Sam!</h2> <%= image_tag "logo.png", class: "small-logo" %>
-    <p class="p-text">Welcome back! <br> What shall we cook today?</p>
+    <h2 class="lemon-title mt-2 mb-2">Hi Sam!</h2> <%= image_tag "logo.png", class: "small-logo" %>
+    <p>Welcome back! <br> What shall we cook today?</p>
   </div>
   <div>
-    <h3 class="menu-text mt-3"> I want something quick</h3>
+    <%= render partial: "shared/menu-title", locals: { title: "I want something quick" } %>
+    <%= render "shared/quick_recipes"%>
   </div>
-  <%= render "shared/recipe_card" %>
-  <%= render "shared/recipe_card" %>
-  <%= render "shared/recipe_card" %>
-</div>
+  <div>
+    <%= render partial: "shared/menu-title", locals: { title: "Top recipies this week!" } %>
+    <%= render "shared/recipe_card" %>
+    <%= render "shared/recipe_card" %>
+    <%= render "shared/recipe_card" %>
+  </div>
+  <div>
+    <%= render partial: "shared/menu-title", locals: { title: "Your leftover ingredients" } %>
+  </div>
+  <div>
+    <%= render partial: "shared/menu-title", locals: { title: "Your best moments" } %>
+  </div>
+  </div>
   <%= render "shared/navbar" %>

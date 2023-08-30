@@ -2,6 +2,59 @@
   margin: 0px;
 }
 
-.menu-text{
+// .lemon-title {
+//   overflow: hidden; /* Hide overflow */
+//   border-right: 0.15em solid rgb(233, 233, 233); /* Add a blinking cursor */
+//   white-space: nowrap; /* Prevent text wrapping */
+//    /* Center horizontally */
+//   letter-spacing: 0.15em; /* Adjust letter spacing */
+//   animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+// }
+// @keyframes typing {
+//   from {
+//     width: 0;
+//   }
+//   to {
+//     width: 100%;
+//   }
+// }
 
+// @keyframes blink-caret {
+//   from, to {
+//     border-color: transparent;
+//   }
+//   50% {
+//     border-color: rgba(255, 166, 0, 0);
+//   }
+// }
+
+
+.lemon-title {
+  overflow: hidden; /* Hide overflow */
+  white-space: nowrap; /* Prevent text wrapping */
+  animation: typing 3s steps(40, end);
+}
+
+.lemon-title h2::after {
+  content: "|"; /* Add the blinking caret */
+  display: inline-block;
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    border-color: rgba(255, 166, 0, 0.979);
+  }
 }

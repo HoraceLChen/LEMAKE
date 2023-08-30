@@ -1,0 +1,26 @@
+.quick-menu {
+  margin-top: 1.25rem;
+  display: flex;
+  height: 110px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: 18px;
+  scroll-behavior: smooth;
+  // overflow: auto;
+  .recipe-category {
+    margin: auto;
+    margin-bottom: 4px;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    border-radius: 16px;
+    border: 2px solid $black;
+    color: $black;
+    width: 65px;
+    height: 65px;
+  }
+}
