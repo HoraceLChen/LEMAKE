@@ -6,7 +6,7 @@
 
   <% @recipes.each do |recipe| %>
     <div class="card-recipe">
-      <div class="card-recipe-image" style="background-image: url('<%= "http://source.unsplash.com/featured/?#{recipe.title.gsub(" ", "-")}&#{rand(1000)}" %>');">
+      <div class="card-recipe-image" style="background-image: url('<%= recipe.image %>');">
         <div class="like-container" data-controller="favourites">
           <%= link_to("#", class: "like", data: {
               url: favourite_toggle_meal_path(id: @meal, recipe: recipe),
