@@ -3,8 +3,8 @@
     <%= image_tag "logo.png", class: "small-logo" %>
     <h3 class="mt-2 mb-2">Tell me more</h3> <%= image_tag "logo.png", class: "small-logo" %>
   </div>
+  <%= simple_form_for @meal do |f| %>
   <div class="card-preference">
-    <%= simple_form_for @meal do |f| %>
       <div class="text-center mb-4 preference-title">
         <h4>Time Available</h4>
       </div>
@@ -26,10 +26,8 @@
         <%= f.input :people_preference, label: false,  input_html: { class: "index-input", data: { form_increment_target: "input"}, value: @meal.people_preference.nil? ? 1 : @meal.people_preference } %>
         <i class="fa-solid fa-circle-plus fa-2x" style="color: #fcd444;" data-action="click->form-increment#peopleUp"></i>
       </div>
-      <div>
-      </div>
     </div>
-    <%= f.submit 'Done!', class: "mx-auto d-block card-done" %>
+    <%= f.submit 'Find Recipes!', class: "mx-auto d-block card-done" %>
   <% end %>
 </div>
 <%= render "shared/navbar" %>
