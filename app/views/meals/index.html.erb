@@ -1,4 +1,4 @@
-<div class="container-body">
+<div class="container-body" data-controller="pantry-modal" data-empty-value="<%=@pantry.blank?%>">
   <div class="title-card">
     <%= image_tag "logo.png", class: "small-logo" %>
     <h2 class="lemon-title mt-2 mb-2">Hi Sam!</h2> <%= image_tag "logo.png", class: "small-logo" %>
@@ -20,5 +20,21 @@
   <div>
     <%= render partial: "shared/menu-title", locals: { title: "Your best moments" } %>
   </div>
+  <div class="modal" id="pantryModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Uh oh! Your Pantry is Currently Empty!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Get the most out of Le Make by setting up your digital pantry now! Add ingredients you usually have on hand - like butter, milk, eggs, olive oil, or spices </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='<%= pantry_user_path(current_user) %>'">Go to Pantry</button>
+      </div>
+    </div>
   </div>
+</div>
   <%= render "shared/navbar" %>
