@@ -15,17 +15,17 @@ class PantryIngredientsController < ApplicationController
   end
 
   def create
-    ingredient = Ingredient.find_by(id: params[:ingredient][:id])
+    ingredient = Ingredient.find_by(id: params[:ingredient_id])
     pantry_ingredient = current_user.pantry_ingredients.find_by(ingredient: ingredient)
     if pantry_ingredient.nil?
       pantry_ingredient = PantryIngredient.new
       pantry_ingredient.ingredient = ingredient
       pantry_ingredient.user = current_user
       pantry_ingredient.save
-      head :created
+      render json: { status: 'created', ingredient: ingredient}, status: :created
     else
       pantry_ingredient.destroy
-      head :ok
+      render json: { status: 'destroyed', ingredient: ingredient}, status: :ok
     end
   end
 end

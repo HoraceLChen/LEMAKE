@@ -12,7 +12,7 @@
 .recipe-card-content {
   display: flex;
   background-color: $white;
-  border-radius: 0px 0px 16px 16px;
+  border-radius: 16px;
   border: 2px solid $black;
   width: 100%;
   padding: 0.625rem;
@@ -33,12 +33,14 @@
 }
 .recipe-card-image {
   background-size: cover;
-  border-radius: 16px 16px 0px 0px;
-  border-top: 2px solid $black;
-  border-left: 2px solid $black;
-  border-right: 2px solid $black;
+  border-radius: 16px;
+  border: 2px solid $black;
   width: 100%;
-  height: 12.5rem;
+  height: 100%;
+  color: $white;
+}
+.recipe-card-image h5 {
+text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 
 .like-count{
@@ -83,6 +85,7 @@
 }
 
 
+
 // .clickable-card {
 //   display: block;
 //   width: 100%;
@@ -98,4 +101,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
+
+.modal-dialog {
+  margin-top: 65%;
 }

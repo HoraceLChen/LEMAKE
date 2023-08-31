@@ -11,8 +11,6 @@
   <div>
     <%= render partial: "shared/menu-title", locals: { title: "Top recipies this week!" } %>
     <%= render "shared/recipe_card" %>
-    <%= render "shared/recipe_card" %>
-    <%= render "shared/recipe_card" %>
   </div>
   <div>
     <%= render partial: "shared/menu-title", locals: { title: "Your leftover ingredients" } %>
@@ -25,7 +23,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Uh oh! Your Pantry is Currently Empty!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
       </div>
       <div class="modal-body">
         <p>Get the most out of Le Make by setting up your digital pantry now! Add ingredients you usually have on hand - like butter, milk, eggs, olive oil, or spices </p>
