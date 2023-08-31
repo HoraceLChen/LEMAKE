@@ -5,7 +5,7 @@ class ChefgptService
   attr_reader :client, :uploaded_ingredients, :pantry_ingredients, :time, :people
 
   def initialize(uploaded_ingredients, pantry_ingredients, time, people)
-    @client = OpenAI::Client.new(api_key: ENV['OPENAI_API_KEY'])
+    @client = OpenAI::Client.new(api_key: ENV['OPENAI_ACCESS_TOKEN'])
     @uploaded_ingredients = uploaded_ingredients
     @pantry_ingredients = pantry_ingredients
     @time = time
@@ -47,6 +47,8 @@ class ChefgptService
   def parse_recipes(full_text)
     recipe_blocks = full_text.split("---").map(&:strip).reject(&:empty?)
     recipe_instances = []
+    img_search = ImgSearchService.new
+
 
     recipe_blocks.each do |recipe_block|
       lines = recipe_block.split("\n").map(&:strip)
@@ -78,9 +80,11 @@ class ChefgptService
 
       steps << accumulated_step.strip unless accumulated_step.empty?
 
+      best_image = img_search.search(title)
+
       recipe_instance = Recipe.create(
         title: title,
-        image: nil,
+        image: best_image,
         content: description,
         cuisine: nil,
         time: time,
