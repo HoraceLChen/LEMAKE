@@ -55,7 +55,6 @@ categories = {
     "Semolina",
     "Caster sugar",
     "Oat flour",
-    "Flour",
     "Spelt flour",
     "Cornmeal",
     "Masa harina"
@@ -208,7 +207,6 @@ categories = {
     "Pumpkin seeds",
     "Almonds",
     "Brazil nuts",
-    "Walnuts",
     "Sunflower seeds",
     "Pecans"
   ],
