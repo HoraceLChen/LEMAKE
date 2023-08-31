@@ -22,10 +22,10 @@ class PantryIngredientsController < ApplicationController
       pantry_ingredient.ingredient = ingredient
       pantry_ingredient.user = current_user
       pantry_ingredient.save
-      head :created
+      render json: { status: 'created', ingredient: ingredient}, status: :created
     else
       pantry_ingredient.destroy
-      head :ok
+      render json: { status: 'destroyed', ingredient: ingredient}, status: :ok
     end
   end
 end
