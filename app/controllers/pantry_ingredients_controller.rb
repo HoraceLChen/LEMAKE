@@ -4,7 +4,34 @@ class PantryIngredientsController < ApplicationController
     @pantry_ingredient = PantryIngredient.new
     @ingredient = Ingredient.new
     @ingredients = Ingredient.all
-    @lol = []
+    pantry_essentials_raw = [
+                              "Rice",
+                              "Soy sauce",
+                              "Sesame oil",
+                              "Fish sauce",
+                              "Mirin",
+                              "Coconut milk",
+                              "Oyster sauce",
+                              "Chilli flakes",
+                              "Five-Spice powder",
+                              "Onion",
+                              "Flour",
+                              "Sugar",
+                              "Rosemary",
+                              "Olive oil",
+                              "Canned tomatoes",
+                              "Thyme",
+                              "Chicken stock cubes",
+                              "Pasta",
+                              "Garlic powder",
+                              "Paprika",
+                              "Eggs",
+                              "Milk",
+                              "Bread",
+                              "Butter"
+                            ]
+
+    @pantry_essentials = Ingredient.where(name: pantry_essentials_raw)
 
     @ingredients_by_category = Ingredient.all.group_by(&:category)
     @user_ingredient_ids = current_user.pantry_ingredients.pluck(:ingredient_id)

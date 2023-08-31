@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="pantry"
 export default class extends Controller {
-  static targets = ["ingredient", "icon", "popup", "form", "insert"]
+  static targets = ["ingredient", "icon", "popup", "form", "insert", "essentialCheckbox", "generalCheckbox"]
   connect() {
     console.log("connected");
   }
@@ -37,17 +37,45 @@ export default class extends Controller {
     if (data.status === 'created') {
       const newDiv = document.createElement("div");
       newDiv.className = "added-ingredients";
+      newDiv.dataset.id = data.ingredient.id
       newDiv.innerHTML = data.ingredient.name;
       popup.appendChild(newDiv);
     } else if (data.status === 'destroyed') {
       const ingredientDivs = popup.querySelectorAll('.added-ingredients');
       ingredientDivs.forEach(div => {
-        if (div.innerHTML === data.ingredient.name) {
+        console.log(div.dataset.id);
+        console.log(data.ingredient.id);
+        if (parseInt(div.dataset.id, 10) === data.ingredient.id) {
           div.remove();
+          console.log('delete');
         }
       });
     }
   }
+
+  check(event) {
+    console.log(event);
+    console.log('connected to Essentials');
+    if (event.target.matches('.essential-check-box')) {
+      this.checkboxes(event, this.generalCheckboxTargets)
+    }
+    if (event.target.matches('.check-box')) {
+      this.checkboxes(event, this.essentialCheckboxTargets)
+    }
+  }
+
+  checkboxes(checkbox,targetCheckbox) {
+    const ingredientId = checkbox.target.dataset.ingredientId;
+    const isChecked = checkbox.target.checked;
+
+    targetCheckbox.forEach((checkboxa) => {
+      if (checkboxa.dataset.ingredientId === ingredientId) {
+        checkboxa.checked = isChecked;
+        this.save(checkbox)
+      }
+    });
+  }
+
 
   seeMore(event){
     console.log(event.currentTarget);
