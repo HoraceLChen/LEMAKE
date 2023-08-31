@@ -1,5 +1,3 @@
-# app/services/chefgpt_service.rb
-require "openai"
 
 class ChefgptService
   attr_reader :client, :uploaded_ingredients, :pantry_ingredients, :time, :people
