@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: url(<%= @recipe.image %>);">
+<div class="banner" style="background-image: url('<%= "http://source.unsplash.com/featured/?#{@recipe.title.gsub(" ", "-")}&#{rand(1000)}" %>');"
 </div>
 <div class="container-body">
   <div class="container-recipe">
@@ -13,7 +13,6 @@
             }) do %>
               <i class="fa <%= current_user.favorited?(@recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %>"></i>
             <% end %>
-
         </div>
         <div class="col">
           <p><i class="fa-solid fa-user-group me-2"></i><%= @recipe.people %></p>

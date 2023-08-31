@@ -44,11 +44,13 @@
 #mic {
   display: flex;
   margin-top: 16px;
-  background-color: $white;
-  padding: 16px;
+  background-color: $yellow;
+  padding: 8px;
   font-size: larger;
   border: 0.3px solid rgba(181, 181, 181, 0.456);
-  border-radius: 20px;
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
 }
 
 .like {
