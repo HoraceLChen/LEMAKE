@@ -2,9 +2,14 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="pantry"
 export default class extends Controller {
-  static targets = ["ingredient", "icon"]
+  static targets = ["ingredient", "icon", "popup"]
   connect() {
     console.log("connected");
+  }
+
+  popUp() {
+    console.log("popup");
+    this.popupTarget.classList.add("open-popup")
   }
 
   seeMore(event){

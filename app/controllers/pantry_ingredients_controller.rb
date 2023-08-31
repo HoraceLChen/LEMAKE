@@ -15,7 +15,7 @@ class PantryIngredientsController < ApplicationController
   end
 
   def create
-    ingredient = Ingredient.find_by(id: params[:ingredient][:id])
+    ingredient = Ingredient.find_by(id: params[:ingredient_id])
     pantry_ingredient = current_user.pantry_ingredients.find_by(ingredient: ingredient)
     if pantry_ingredient.nil?
       pantry_ingredient = PantryIngredient.new
