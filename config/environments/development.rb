@@ -12,6 +12,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Allow requests by adding the following to your environment configuration.
+  config.hosts.clear
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

@@ -9,17 +9,17 @@
     <div class="text-center mb-4 card-title">
       <h5>Add an Ingredient</h5>
     </div>
-    <div class="form">
-      <div class="d-flex justify-content-center align-items-center mb-4" id="mic">
+    <div class="form d-flex">
+      <div class="d-flex justify-content-center " id="mic">
         <i class="fa-solid fa-microphone" style="color: #484846;"  data-action="click->speech#record"></i>
       </div>
       <%= simple_form_for [@meal, @uploaded_ingredient], url: meal_uploaded_ingredients_path(@meal), html: { 'data-speech-target': "form" } do |f| %>
         <%= f.simple_fields_for :ingredient, @ingredient_new do |i_f| %>
           <%= i_f.input :name, label:false, placeholder: "Type ingredient here!", input_html: { class: "ingredient-input", data: { speech_target: "input" } }, class: "container" %>
         <% end %>
+    </div>
         <%= f.submit 'Add', class: "mx-auto d-block btn-add-ingredient" %>
       <% end %>
-    </div>
   </div>
 
   <div class="container-ingredients-card" data-speech-target="ingredients">
