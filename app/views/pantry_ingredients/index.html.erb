@@ -1,26 +1,32 @@
 <div class="container-ingredients-index"  data-controller="pantry">
-  <div class="d-flex justify-content-center align-items-center mt-3">
-    <h1>Add persistent ingredient</h1>
+  <div class="d-flex justify-content-center align-items-center mt-4">
+    <h1>Thank you for signing up!</h1>
   </div>
+  <h6 class="ml-3 mx-3 my-4">
+    You can add presistent igredients first.<br>
+    Click bottuns and go find recipe!</h6>
   <%# / %>
   <%# / %>
   <%# / %>
   <%# /%>
   <div class="d-flex justify-content-center">
-    <button class="popup-botton" data-action="click->pantry#popUp">Confirm and submmit</button>
+    <button class="popup-botton" data-action="click->pantry#popUp">Confirm your ingredients</button>
   </div>
   <%# / %>
-  <div class="pantry_ingredients-card">
+  <div class="pantry_ingredients-container">
     <div class="popup-card" data-pantry-target="popup">
-      <%= link_to "Show", pantry_user_path, class: "text-decoration-none" %>
       <div data-pantry-target="insert">
-        <% current_user.pantry_ingredients.each do |ingredient| %>
-          <div class="added-ingredients" data-id="<%= ingredient.ingredient_id %>">
-            <%= ingredient.ingredient.name.titleize %>
-          </div>
-        <% end %>
+        <h4 class="d-flex justify-content-center align-items-center m" >Here is what you have!</h4>
+        <div>
+          <% current_user.pantry_ingredients.each do |ingredient| %>
+            <div class="mx-auto d-block added-ingredients" data-id="<%= ingredient.ingredient_id %>">
+              <%= ingredient.ingredient.name.titleize %>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <%= link_to "Submit", pantry_user_path, class: "mx-auto d-block btn-continue"  %>
+      <%= link_to "Submit", pantry_user_path, class: "mx-auto d-block btn-signup"  %>
+      <%= link_to "Bcck", pantry_user_path, class: "d-flex justify-content-center m-2 text-decoration-none" %>
     </div>
   </div>
   <%# / %>
