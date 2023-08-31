@@ -4,6 +4,7 @@ class MealsController < ApplicationController
 
   def index
     @recipe = Recipe.all.sample
+    @pantry = current_user.pantry_ingredients
   end
 
   def create
