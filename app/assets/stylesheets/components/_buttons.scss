@@ -43,7 +43,6 @@
 
 #mic {
   display: flex;
-  margin-top: 16px;
   background-color: $yellow;
   padding: 8px;
   font-size: larger;
@@ -51,6 +50,10 @@
   border-radius: 50%;
   height: 38px;
   width: 38px;
+}
+
+.no-margin {
+  margin: 0 !important;
 }
 
 .like {
