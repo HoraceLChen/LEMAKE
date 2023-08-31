@@ -7,6 +7,7 @@
   margin-top: 1.25rem;
   width: 100%;
   height: 17.5rem;
+  position: relative;
 }
 .recipe-card-content {
   display: flex;
@@ -50,7 +51,7 @@
   padding: 8px;
   border-radius: 20px;
   border-color: $black;
-  color: rgb(253, 52, 103);
+  color: rgb(251, 27, 27);
 }
 .card-image {
   width: 100%;
@@ -79,4 +80,22 @@
   border-radius: 50px;
   border-color: $black;
   background-color: $white;
+}
+
+
+// .clickable-card {
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   text-decoration: none; /* Remove default link underline */
+//   color: inherit; /* Inherit text color from parent */
+// }
+
+.card-link {
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }

@@ -24,9 +24,9 @@
         </div>
         <div class="flex d-flex justify-content-evenly">
           <h4 class="flex-grow-1 ms-2 me-2"><%= recipe.title %></h4>
-          <%= link_to("COOK", save_recipe_meal_path(@meal, recipe: recipe), class: "btn btn-success me-2", data:{turbo_method: :patch}) %>
         </div>
       </div>
+      <%= link_to "", save_recipe_meal_path(@meal, recipe: recipe), data:{turbo_method: :patch}, class: "card-link" %>
     </div>
   <% end %>
 </div>

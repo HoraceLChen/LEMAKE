@@ -10,8 +10,6 @@
         <h5><%= @recipe.title %></h5>
       </div>
     </div>
-    <div class="d-flex align-items-center">
-      <%= link_to "COOK", bookmarks_user_path(current_user, recipe: @recipe), data:{turbo_method: :post}, class: "btn btn-success" %>
-    </div>
   </div>
+  <%= link_to "", bookmarks_user_path(current_user, recipe: @recipe), data:{turbo_method: :post}, class: "card-link" %>
 </div>
