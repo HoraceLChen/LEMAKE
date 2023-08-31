@@ -13,21 +13,22 @@
     <% end %>
   </div>
   <%# /////// %>
-  <div class="container-ingredients-card">
+  <div class="container-ingredients-card" data-controller="pantry">
     <div class="ingredients_by_category">
       <% @ingredients_by_category.each do |category, ingredients| %>
         <%# <fieldset> %>
-        <legend><%= category %></legend>
-        <div class="row">
-          <div class="col d-flex justify-content-evenly check-box-align">
-            <% ingredients.sort_by(&:name).each do |ingredient| %>
-              <%= form_with url: pantry_user_path, method: :post, data: { controller: 'autosave'} do |f| %>
-                <input type="checkbox" id="ingredient-select-<%= ingredient.id %>" class="check-box"  data-action='change->autosave#save' <%= "checked" if @user_ingredient_ids.include?(ingredient.id) %> >
-                <label for="ingredient-select-<%= ingredient.id %>" ><%= ingredient.name %></label>
-                <input type="hidden" id="" class=""  value="<%= ingredient.id %>" name="ingredient[id]" checked>
-              <% end %>
+        <div class="d-flex justify-content-between"  data-action="click->pantry#seeMore" data-category="<%= category %>">
+          <legend><%= category %></legend>
+          <i class="fa-solid fa-caret-down pt-2" style="color: #484846;" data-pantry-target="icon" data-category="<%= category %>"></i>
+        </div>
+        <div class="d-flex d-none check-box-align" data-pantry-target="ingredient" data-category="<%= category %>">
+          <% ingredients.sort_by(&:name).each do |ingredient| %>
+            <%= form_with url: pantry_user_path, method: :post, data: { controller: 'autosave'} do |f| %>
+              <input type="checkbox" id="ingredient-select-<%= ingredient.id %>" class="check-box"  data-action='change->autosave#save' <%= "checked" if @user_ingredient_ids.include?(ingredient.id) %> >
+              <label for="ingredient-select-<%= ingredient.id %>" ><%= ingredient.name %></label>
+              <input type="hidden" id="" class=""  value="<%= ingredient.id %>" name="ingredient[id]" checked>
             <% end %>
-          </div>
+          <% end %>
         </div>
         <%# </fieldset> %>
       <% end %>
