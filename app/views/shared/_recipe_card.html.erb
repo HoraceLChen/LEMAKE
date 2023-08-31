@@ -1,5 +1,5 @@
 <div class="recipe-card">
-  <div class="recipe-card-image" style="background-image: url('<%= @recipe.image %>');">
+  <div class="recipe-card-image" style="background-image: url('<%= "http://source.unsplash.com/featured/?#{@recipe.title}&#{rand(10)}" %>');">
     <div class="like-count">
       <i class="fa-solid fa-heart"> <%= rand(50..2473) %></i>
       </div>

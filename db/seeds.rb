@@ -485,7 +485,7 @@ RecipeIngredient.create(
 30.times do
   recipe = Recipe.create(
     title: Faker::Food.dish,
-    image: "http://source.unsplash.com/featured/?#{Faker::Food.dish}&#{rand(1000)}",
+    image: "http://source.unsplash.com/featured/?#{Faker::Food.dish}&#{rand(10)}",
     content: Faker::Food.description,
     cuisine: Faker::Food.ethnic_category,
     time: rand(1..5),

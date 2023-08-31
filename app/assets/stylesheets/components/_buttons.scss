@@ -44,23 +44,37 @@
 #mic {
   display: flex;
   margin-top: 16px;
-  background-color: $white;
-  padding: 16px;
+  background-color: $yellow;
+  padding: 8px;
   font-size: larger;
   border: 0.3px solid rgba(181, 181, 181, 0.456);
-  border-radius: 20px;
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
 }
 
 .like {
   text-decoration: none;
-  font-size: 24px;
+  font-size: 22px;
   // padding: 4px;
   color: rgb(253, 52, 103);
+  // position: relative;
+  // padding: 8px 12px 8px 12px;
+  // margin: 8px;
+  // background-color: $white;
+  // border: 2px solid;
+  // border-radius: 50%;
+  // border-color: $black;
+}
+
+.like-container{
+  display: inline-block;
+  font-size: small;
   position: relative;
-  padding: 8px 12px 8px 12px; /* top right bottom left; */
   margin: 8px;
   background-color: $white;
   border: 2px solid;
+  padding: 8px 12px 8px 12px; /* top right bottom left; */
   border-radius: 50%;
   border-color: $black;
 }
