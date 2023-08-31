@@ -12,7 +12,7 @@
   background-color: rgb(252, 212, 93);
   border: solid ;
   border-radius: 20px;
-  padding-left: 5px;
+  padding: 5px;
   padding-right: 5px;
   margin: 5px;
 }
@@ -27,9 +27,13 @@
   background-color: white;
   border: solid ;
   border-radius: 20px;
-  padding-left: 5px;
-  padding-right: 5px;
   margin: 5px;
+  font-size: 14px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
 }
 
 .check-box:checked + label{
@@ -37,17 +41,66 @@
   background-color: rgb(252, 212, 93);
   border: solid ;
   border-radius: 20px;
+  margin: 5px;
   padding-left: 5px;
   padding-right: 5px;
-  margin: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .check-box-align{
   flex-wrap: wrap;
 }
 
-// .card-pantry{
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
+.card-search-ingredient{
+  padding: 0px;
+  border-radius: 10px;
+  background-color: $white;
+  height: 50px;
+}
+
+.seach-box{
+  border-color :rgb(56, 56, 56);
+  height: 30px;
+}
+
+.btn-search {
+  background-color: rgb(255, 158, 64);
+  // border: 1px solid rgb(56, 56, 56);
+  color: rgb(56, 56, 56);
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.popup-botton{
+    background-color: rgb(255, 158, 64);
+    border: 2px solid rgb(56, 56, 56);
+    color: rgb(56, 56, 56);
+    font-size: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px;
+}
+
+.popup-card {
+  // padding: 20px;
+  // border: 2px solid #000;
+  width: 350px;
+  background-color: $white;
+  border-radius: 10px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  visibility: hidden;
+  transition: transfrom 0.4s, top 0.4s;
+}
+
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%)  scale(1);
+}
