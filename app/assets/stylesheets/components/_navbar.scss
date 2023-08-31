@@ -12,6 +12,7 @@
   display: flex;
   justify-content: space-around;
   border: 2px solid $black;
+  box-shadow: 0px 0px 4px $black;
 }
 
 .nav-links {
@@ -43,4 +44,5 @@
   border-color: $black;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }

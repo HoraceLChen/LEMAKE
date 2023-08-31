@@ -25,7 +25,8 @@
 }
 
 .recipe-card-content.title {
-  margin-top: 4px;
+  position: absolute;
+  align-items: end;
   width: 66%;
   height: 1.5rem;
   font-weight: 400;
