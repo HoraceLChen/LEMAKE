@@ -9,7 +9,6 @@ export default class extends Controller {
   }
 
   submit(event) {
-    event.preventDefault();
     const form = this.formTarget;
     const formData = new FormData(form);
 
