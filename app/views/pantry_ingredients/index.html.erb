@@ -6,7 +6,6 @@
   <div class="pantry_ingredients-card">
     <%= link_to "Show", pantry_user_path, class: "text-decoration-none" %>
     <% current_user.pantry_ingredients.each do |ingredient| %>
-      <%# <%= ingredient.ingredient.category %>
       <div class="added-ingredients">
         <%= ingredient.ingredient.name.titleize %>
       </div>
@@ -16,7 +15,6 @@
   <div class="container-ingredients-card" data-controller="pantry">
     <div class="ingredients_by_category">
       <% @ingredients_by_category.each do |category, ingredients| %>
-        <%# <fieldset> %>
         <div class="d-flex justify-content-between"  data-action="click->pantry#seeMore" data-category="<%= category %>">
           <legend><%= category %></legend>
           <i class="fa-solid fa-caret-down pt-2" style="color: #484846;" data-pantry-target="icon" data-category="<%= category %>"></i>
@@ -30,7 +28,6 @@
             <% end %>
           <% end %>
         </div>
-        <%# </fieldset> %>
       <% end %>
       <%= link_to "Set up", pantry_user_path, class: "mx-auto d-block btn-continue"  %>
       <%# <%= submit_tag "Set up!", class:  "mx-auto d-block btn-continue"  %>
