@@ -36,7 +36,7 @@ export default class extends Controller {
 
     if (data.status === 'created') {
       const newDiv = document.createElement("div");
-      newDiv.className = "added-ingredients";
+      newDiv.className = "added-ingredients mx-auto d-block ";
       newDiv.dataset.id = data.ingredient.id
       newDiv.innerHTML = data.ingredient.name;
       popup.appendChild(newDiv);
@@ -76,6 +76,11 @@ export default class extends Controller {
     });
   }
 
+
+  closeModal(event) {
+    event.preventDefault();
+    this.popupTarget.classList.remove("open-popup");
+  }
 
   seeMore(event){
     console.log(event.currentTarget);

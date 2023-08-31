@@ -25,8 +25,8 @@
           <% end %>
         </div>
       </div>
-      <%= link_to "Submit", pantry_user_path, class: "mx-auto d-block btn-signup"  %>
-      <%= link_to "Bcck", pantry_user_path, class: "d-flex justify-content-center m-2 text-decoration-none" %>
+      <%= link_to "Submit", '#', class: "mx-auto d-block btn-signup", data:{action: "click->pantry#closeModal"}  %>
+      <%= link_to "Back", '#', class: "d-flex justify-content-center m-2 text-decoration-none", data:{action: "click->pantry#closeModal"} %>
     </div>
   </div>
   <%# / %>
