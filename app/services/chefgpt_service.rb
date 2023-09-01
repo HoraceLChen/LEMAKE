@@ -13,7 +13,7 @@ class ChefgptService
   def generate_recipes
     combined_ingredients = uploaded_ingredients + pantry_ingredients
     # prompt = "Generate 6 recipes that primarily use the following ingredients: #{combined_ingredients.join(", ")}. Each recipe should be formatted as a Ruby hash, like so: { title: 'Recipe Title', description: 'Recipe Description', ingredients: ['Ingredient 1', 'Ingredient 2'], instructions: ['Step 1', 'Step 2'] }. Each recipe should take no more than #{@time} minutes, serve #{@people} people, and include measurements for ingredients in metric units."
-    prompt = "Generate 3 recipes that primarily use the following ingredients: #{combined_ingredients.join(", ")}. For each recipe, start with 'title: [Recipe Title]' on one line, followed by the description on the next line, then ingredients and finally instructions. Separate each recipe with a line that says '---'. Each recipe should take no more than #{@time} minutes, serve #{@people} people, and include measurements for ingredients in metric units."
+    prompt = "Generate 2 recipes that primarily use the following ingredients: #{combined_ingredients.join(", ")}. For each recipe, start with 'title: [Recipe Title]' on one line, followed by the description on the next line, then ingredients and finally instructions. Separate each recipe with a line that says '---'. Each recipe should take no more than #{@time} minutes, serve #{@people} people, and include measurements for ingredients in metric units."
     full_text = fetch_completion_from_openai(prompt, 1600)  # Increased max tokens to allow for more content
     recipes = parse_recipes(full_text)
     recipes
