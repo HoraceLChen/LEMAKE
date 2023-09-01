@@ -85,3 +85,14 @@
   color: $black;
   margin-right: 6px;
 }
+
+textarea {
+  border: 2px solid #383838;
+  border-radius: 8px;
+}
+
+.gallery-section {
+  border: 5px solid $black;
+  display: flex;
+  justify-content: center;
+}

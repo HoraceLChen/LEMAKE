@@ -60,7 +60,8 @@ class ChefgptService
       ingredients_start = lines.index("Ingredients:")&.+(1)
       instructions_start = lines.index("Instructions:")&.+(1)
 
-      ingredients = ingredients_start && instructions_start ? lines[ingredients_start..instructions_start-2] : nil
+      ingredients = ingredients_start && instructions_start ? lines[ingredients_start..instructions_start - 2] : nil
+      ingredients = ingredients.map { |item| item.sub('- ', '') }
 
       accumulated_step = ""
       steps = []
