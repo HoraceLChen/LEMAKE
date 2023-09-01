@@ -2,6 +2,9 @@
   background-color: #FCD45D;
   border-radius: 16px;
   padding: 19px;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
 }
 .recipe-card {
   margin-top: 1.25rem;

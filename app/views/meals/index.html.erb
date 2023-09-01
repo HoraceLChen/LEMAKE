@@ -1,8 +1,12 @@
 <div class="container-body" data-controller="pantry-modal" data-empty-value="<%=@pantry.blank?%>">
   <div class="title-card">
-    <%= image_tag "logo.png", class: "small-logo" %>
-    <h2 class="lemon-title mt-2 mb-2">Hi Sam!</h2> <%= image_tag "logo.png", class: "small-logo" %>
+    <div>
+    <h2 class="lemon-title mt-2 mb-2">Hi Sam!</h2>
     <p>Welcome back! <br> What shall we cook today?</p>
+    </div>
+    <div>
+    <%= image_tag "logo.png", class: "small-logo" %>
+    </div>
   </div>
   <div>
     <%= render partial: "shared/menu-title", locals: { title: "I want something quick" } %>
