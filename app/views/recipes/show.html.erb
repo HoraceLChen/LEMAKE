@@ -1,8 +1,8 @@
 <div class="banner" style="background-image: url('<%= "#{@recipe.image}" %>');">
 </div>
-<div class="container-body">
+<div class="container-body" >
   <div class="container-recipe">
-    <h2 class="text-center my-4"><%= @recipe.title %></h2>
+    <h2 class="my-4 ps-3"><%= @recipe.title %></h2>
     <div class="container text-center">
       <div class="row align-items-center">
         <div class="col">
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="text-start mb-4">
-    <div class="small-card mt-3">Ingredients
+    <div class="small-card mt-3"><h5>Ingredients</h5>
       <div class="solid-line mb-1"></div>
       <% @recipe.ings.each do |ing|%>
         <%= ing %><br>
@@ -29,7 +29,7 @@
     </div>
     <% @recipe.steps.each_with_index do |step, index|%>
       <%# <p class="num-card">Step <%= index+1 %>
-      <div class="small-card mt-3">Step <%= index+1 %><br>
+      <div class="small-card mt-3"><h5>Step <%= index+1 %></h5>
       <div class="solid-line mb-1"></div>
       <%= step %></div>
     <% end %>
@@ -63,7 +63,7 @@
 
   <div class="tab-content show" id="tab1" data-controller="slider" data-target="tab.panel">
     <h2>Notes</h2>
-    <%= form_with(model: @review, url: reviews_path, local: true, html: { 'data-controller': 'reviews', 'data-target': 'reviews.form', 'data-action': 'reviews#submit' }) do |f| %>
+    <%= form_with(model: @review, url: reviews_path, local: true, html: { 'data-controller': 'reviews', 'data-reviews-target': 'form'}) do |f| %>
       <%= f.text_area :content, placeholder: "Tried this with a pinch of extra cinnamon - turned out amazing! ", class: "container pb-3" %>
       <%= f.hidden_field :meal_id, value: params[:meal_id] %>
       <%= f.submit "Submit", class: "btn btn-success" %>
@@ -77,15 +77,15 @@
 
   <div class="tab-content" id="tab2" data-controller="slider" data-target="tab.panel">
     <div> <h2>Gallery</h2></div>
-      <div>
+      <div class="gallery-section">
       <%= form_with(model: @meal, url: upload_photo_meal_path(id: @meal), local: true, html: {'data-controller': 'upload'}) do |f| %>
-        <%= f.label :photo, '📷 Upload your dish', class: 'upload-photo align-items-center' %>
+        <%= f.label :photo, 'Upload your dish', class: 'upload-photo align-items-center notes-container' %>
         <%= f.file_field :photo, class: 'd-none', 'data-action': 'change->upload#submit' %>
+      </div>
         <%= cl_image_tag(@meal.photo.key, width: 315, height: 315, crop: :fill, class: "gallery-img") if @meal.photo.attached? %>
         <%# <%= f.submit "Upload Image", class: "btn btn-success" %>
         <%# # Optional, if you want a submit button %>
       <% end %>
-      </div>
     </div>
   </div>
 </div>

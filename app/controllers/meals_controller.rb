@@ -3,7 +3,8 @@ class MealsController < ApplicationController
 
 
   def index
-    @recipe = Recipe.all.sample
+    @recipe = Recipe.first
+    @recipe2 = Recipe.find_by(title: "Simple Breakfast Salad")
     @pantry = current_user.pantry_ingredients
   end
 
