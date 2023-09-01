@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: url('<%= "http://source.unsplash.com/featured/?#{@recipe.title.gsub(" ", "-")}&#{rand(1000)}" %>');">
+<div class="banner" style="background-image: url('<%= "#{@recipe.image}" %>');">
 </div>
 <div class="container-body">
   <div class="container-recipe">
@@ -22,7 +22,7 @@
   </div>
   <div class="text-start mb-4">
     <div class="small-card mt-3">Ingredients
-      <div class="solid-line"></div>
+      <div class="solid-line mb-1"></div>
       <% @recipe.ings.each do |ing|%>
         <%= ing %><br>
       <% end %>
@@ -30,7 +30,7 @@
     <% @recipe.steps.each_with_index do |step, index|%>
       <%# <p class="num-card">Step <%= index+1 %>
       <div class="small-card mt-3">Step <%= index+1 %><br>
-      <div class="solid-line"></div>
+      <div class="solid-line mb-1"></div>
       <%= step %></div>
     <% end %>
   </div>
