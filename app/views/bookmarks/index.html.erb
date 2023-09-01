@@ -7,7 +7,7 @@
     <%# need to look at add a favouriter gem for output %>
     <% @favorite_recipes.each do |recipe| %>
     <div class="card-recipe">
-      <div class="recipe-card-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, #11111182), url('<%= "http://source.unsplash.com/featured/?food&2152}" %>');">
+      <div class="recipe-card-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, #11111182), url('<%= "#{recipe.image}" %>');">
         <div class="like-container">
             <%= link_to("#", class: "like",
             ) do %>

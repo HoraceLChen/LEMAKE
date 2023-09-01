@@ -376,17 +376,17 @@ recipe1 = Recipe.create(
     "Serve a portion of cooked white rice, chicken and curry on each plate."
   ],
   ings: [ "- 2 boneless, skinless chicken breasts",
-    "- Salt and pepper, to taste",
-    "- 1/2 cup all-purpose flour",
-    "- 1 egg, beaten",
-    "- 1 cup panko breadcrumbs",
-    "- Vegetable oil, for frying",
-    "- 1 box (4.2 oz) store-bought curry roux (mild or medium)",
-    "- 2 cups water",
-    "- 1 onion, chopped",
-    "- 1 carrot, peeled and diced",
-    "- 1 potato, peeled and diced",
-    "- Cooked white rice"
+    "Salt and pepper, to taste",
+    "1/2 cup all-purpose flour",
+    "1 egg, beaten",
+    "1 cup panko breadcrumbs",
+    "Vegetable oil, for frying",
+    "1 box (4.2 oz) store-bought curry roux (mild or medium)",
+    "2 cups water",
+    "1 onion, chopped",
+    "1 carrot, peeled and diced",
+    "1 potato, peeled and diced",
+    "Cooked white rice"
 ]
 )
 recipe2 = Recipe.create(
@@ -432,15 +432,15 @@ recipe3 = Recipe.create(
     "Arrange slices of avocado sprinkled with everything seasoning and lastly, top with the two quick-poached eggs.",
     "And season with salt and pepper and any leftover tomato juicy goodness."
   ],
-  ings: [ "- 2 boneless, skinless chicken breasts",
-    "olive oil",
-    "5 cherry tomatoes",
-    "kosher salt",
-    "black pepper",
-    "white vinegar",
-    "2 eggs",
-    "100g power salad greens",
-    "1 avocado"
+  ings: [ "2 Boneless, skinless chicken breasts",
+    "Olive oil",
+    "5 Cherry tomatoes",
+    "Kosher salt",
+    "Black pepper",
+    "White vinegar",
+    "2 Eggs",
+    "100g Power salad greens",
+    "1 Avocado"
   ]
 )
 # RecipeIngredient.create(
