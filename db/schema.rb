@@ -116,7 +116,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_091808) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
     t.text "content"
     t.bigint "meal_id", null: false
     t.datetime "created_at", null: false
