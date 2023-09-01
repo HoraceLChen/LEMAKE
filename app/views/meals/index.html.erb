@@ -24,28 +24,27 @@
   </div>
   <div>
     <%= render partial: "shared/menu-title", locals: { title: "Recommended for you" } %>
-    <div class="recipe-card">
-  <div class="recipe-card-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, #11111182), url('<%= "#{@recipe2.image}" %>');">
+   <div class="recipe-card">
+  <div class="recipe-card-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, #11111182), url('<%= "#{@recipe.image}" %>');">
     <div class="like-count">
       <i class="fa-solid fa-heart"> <%= rand(50..2473) %></i>
       </div>
       <%# <div class="d-flex align-items-start">
         <%# <%= link_to "COOK", bookmarks_user_path(current_user, recipe: @recipe), data:{turbo_method: :post}, class: "btn btn-success" %>
       <%# </div> %>
-      <h5><%= @recipe2.title %></h5>
 
-    <div class="recipe-card-infos my-4">
+    <div class="recipe-card-infos">
+      <h5><%= @recipe.title %></h5>
           <div class="flex d-flex justify-content-between mx-3">
-            <p><i class="fa-solid fa-list-check"></i> <%= @recipe2.steps.length %> steps</p>
-            <p><i class="fa-solid fa-user-group me-2"></i><%= @recipe2.people %></p>
-            <p><i class="fa-regular fa-clock me-2"></i><%= @recipe2.time %>min</p>
+            <p><i class="fa-solid fa-list-check"></i> <%= @recipe.steps.length %> steps</p>
+            <p><i class="fa-solid fa-user-group me-2"></i><%= @recipe.people %></p>
+            <p><i class="fa-regular fa-clock me-2"></i><%= @recipe.time %>min</p>
           </div>
         </div>
 
   </div>
-  <%= link_to "", bookmarks_user_path(current_user, recipe: @recipe2), data:{turbo_method: :post}, class: "card-link" %>
+  <%= link_to "", bookmarks_user_path(current_user, recipe: @recipe), data:{turbo_method: :post}, class: "card-link" %>
 </div>
-
   </div>
   <div class="modal" id="pantryModal" tabindex="-1">
   <div class="modal-dialog">
