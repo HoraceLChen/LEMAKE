@@ -27,7 +27,7 @@
       </div>
     </div>
     <div>
-      <%= f.submit 'Find Recipes!', class: "mx-auto d-block card-done", data:{controller: "loading", target: "btn", image: image_path("tutorial/oshiri_lemon.png") }  %>
+      <%= f.submit 'Find Recipes!', class: "mx-auto d-block card-done", data:{controller: "loading", action: "click->loading#leChef", target: "btn", image: image_path("tutorial/oshiri_lemon.png") }  %>
     </div>
   <% end %>
 </div>
