@@ -2,7 +2,7 @@
 </div>
 <div class="container-body">
   <div class="container-recipe">
-    <h2 class="text-center my-4"><%= @recipe.title %></h2>
+    <h2 class="my-4 ps-3"><%= @recipe.title %></h2>
     <div class="container text-center">
       <div class="row align-items-center">
         <div class="col">
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="text-start mb-4">
-    <div class="small-card mt-3">Ingredients
+    <div class="small-card mt-3"><h5>Ingredients</h5>
       <div class="solid-line mb-1"></div>
       <% @recipe.ings.each do |ing|%>
         <%= ing %><br>
@@ -29,7 +29,7 @@
     </div>
     <% @recipe.steps.each_with_index do |step, index|%>
       <%# <p class="num-card">Step <%= index+1 %>
-      <div class="small-card mt-3">Step <%= index+1 %><br>
+      <div class="small-card mt-3"><h5>Step <%= index+1 %></h5>
       <div class="solid-line mb-1"></div>
       <%= step %></div>
     <% end %>
