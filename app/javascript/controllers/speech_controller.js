@@ -18,8 +18,9 @@ export default class extends Controller {
       const recordedIngredients = event.results[0][0].transcript.split(" and ")
       console.log(recordedIngredients)
       recordedIngredients.forEach(ingredient => {
+        console.log(ingredient);
         const url = this.formTarget.action
-        this.inputTarget.value = ingredient
+        this.inputTarget.value = ingredient.replace(".","")
         const data = new FormData(this.formTarget)
         fetch(url, {
           method: "POST",

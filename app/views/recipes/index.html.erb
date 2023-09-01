@@ -6,7 +6,7 @@
 
   <% @recipes.each do |recipe| %>
     <div class="card-recipe">
-      <div class="card-recipe-image" style="background-image: url('<%= "#{recipe.image}" %>');">
+      <div class="recipe-card-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, #11111182), url('<%= "http://source.unsplash.com/featured/?food&2152}" %>');">
         <div class="like-container" data-controller="favourites">
           <%= link_to("#", class: "like", data: {
               url: favourite_toggle_meal_path(id: @meal, recipe: recipe),
@@ -16,16 +16,16 @@
               <i class="fa <%= current_user.favorited?(recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %>"></i>
             <% end %>
           </div>
-      </div>
-      <div class="card-recipe-infos my-4">
-        <div class="flex d-flex justify-content-between mx-2">
+
+        <div class="card-recipe-infos my-4">
+        <div class="flex d-flex justify-content-between mx-3">
+          <p><i class="fa-solid fa-list-check"></i> <%= recipe.steps.length %> steps</p>
           <p><i class="fa-solid fa-user-group me-2"></i><%= recipe.people %></p>
           <p><i class="fa-regular fa-clock me-2"></i><%= recipe.time %>min</p>
         </div>
-        <div class="flex d-flex justify-content-evenly">
-          <h4 class="flex-grow-1 ms-2 me-2"><%= recipe.title %></h4>
-        </div>
       </div>
+      <h5><%= recipe.title %></h5>
+    </div>
       <%= link_to "", save_recipe_meal_path(@meal, recipe: recipe), data:{turbo_method: :patch}, class: "card-link" %>
     </div>
   <% end %>
