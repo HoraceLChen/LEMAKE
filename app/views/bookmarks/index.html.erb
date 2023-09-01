@@ -5,7 +5,7 @@
 
     <%# need to look at add a favouriter gem for output %>
     <% @favorite_recipes.each do |recipe| %>
-    <div class="card-recipe">
+    <div class="recipe-card">
       <div class="recipe-card-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, #11111182), url('<%= "#{recipe.image}" %>');">
         <div class="like-container">
             <%= link_to("#", class: "like",
@@ -13,14 +13,14 @@
             <i class="fa <%= current_user.favorited?(recipe) ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %>"></i>
           <% end %>
         </div>
-        <div class="card-recipe-infos my-4">
+        <div class="recipe-card-infos">
+          <h5><%= recipe.title %></h5>
           <div class="flex d-flex justify-content-between mx-3">
             <p><i class="fa-solid fa-list-check"></i> <%= recipe.steps.length %> steps</p>
             <p><i class="fa-solid fa-user-group me-2"></i><%= recipe.people %></p>
             <p><i class="fa-regular fa-clock me-2"></i><%= recipe.time %>min</p>
           </div>
         </div>
-          <h5><%= recipe.title %></h5>
       </div>
       <%= link_to "", bookmarks_user_path(recipe: recipe), data:{turbo_method: :post}, class: "card-link" %>
     </div>

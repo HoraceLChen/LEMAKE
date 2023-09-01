@@ -6,9 +6,9 @@
       <%# <div class="d-flex align-items-start">
         <%# <%= link_to "COOK", bookmarks_user_path(current_user, recipe: @recipe), data:{turbo_method: :post}, class: "btn btn-success" %>
       <%# </div> %>
-      <h5><%= @recipe.title %></h5>
 
-    <div class="recipe-card-infos my-4">
+    <div class="recipe-card-infos">
+      <h5><%= @recipe.title %></h5>
           <div class="flex d-flex justify-content-between mx-3">
             <p><i class="fa-solid fa-list-check"></i> <%= @recipe.steps.length %> steps</p>
             <p><i class="fa-solid fa-user-group me-2"></i><%= @recipe.people %></p>
