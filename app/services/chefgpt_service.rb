@@ -13,11 +13,31 @@ class ChefgptService
   def generate_recipes
     combined_ingredients = uploaded_ingredients + pantry_ingredients
     # prompt = "Generate 6 recipes that primarily use the following ingredients: #{combined_ingredients.join(", ")}. Each recipe should be formatted as a Ruby hash, like so: { title: 'Recipe Title', description: 'Recipe Description', ingredients: ['Ingredient 1', 'Ingredient 2'], instructions: ['Step 1', 'Step 2'] }. Each recipe should take no more than #{@time} minutes, serve #{@people} people, and include measurements for ingredients in metric units."
-    prompt = "Generate 2 recipes that primarily use the following ingredients: #{combined_ingredients.join(", ")}. For each recipe, start with 'title: [Recipe Title]' on one line, followed by the description on the next line, then ingredients and finally instructions. Separate each recipe with a line that says '---'. Each recipe should take no more than #{@time} minutes, serve #{@people} people, and include measurements for ingredients in metric units."
+    prompt = "Generate a recipe that only uses the following ingredients: #{combined_ingredients.join(", ")}. For the recipe, start with 'title: [Recipe Title]' on one line, followed by the description on the next line, then ingredients and finally instructions. The recipe should take no more than #{@time} minutes, serve #{@people} people, and include measurements for ingredients in metric units."
     full_text = fetch_completion_from_openai(prompt, 1600)  # Increased max tokens to allow for more content
     recipes = parse_recipes(full_text)
     recipes
   end
+
+  # Write a method that reads the ingredients from the user and matches them to the recipes in the database, then returns up to 3 recipes that match. If there are no matches, generate new recipes.
+  def find_or_create_recipe(uploaded_ingredients, pantry_ingredients, time, people)
+    # Using a more efficient query to find recipes with matching ingredients
+    combined_ingredients = uploaded_ingredients + pantry_ingredients
+    recipes = Recipe.all.select { |recipe| recipe.ings.sort == combined_ingredients.sort && recipe.time == time && recipe.people == people}
+    matching_recipes = recipes.take(3)
+
+    if matching_recipes.length < 3
+      (3 - matching_recipes.length).times do
+        new_recipe = generate_recipes # Assuming generate_recipes returns a new recipe
+        matching_recipes << new_recipe
+      end
+    end
+
+    matching_recipes
+  end
+
+
+
 
   private
 

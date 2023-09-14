@@ -38,15 +38,26 @@ class RecipesController < ApplicationController
     time = @meal.time_preference
     people = @meal.people_preference
 
-    # Use the RecipeService to generate recipes based on the combined ingredients, time, and people
+    # call the find_or_create_recipe method from the ChefgptService, passing in the combined ingredients, time, and people, and store the result in @recipes.
     service = ChefgptService.new(uploaded_ingredients, pantry_ingredients, time, people)
-    @recipes = service.generate_recipes
+    @recipes = service.find_or_create_recipe(uploaded_ingredients, pantry_ingredients, time, people)
     if @recipes && @recipes.any?
       @recipes  # Use @recipes in your view to display the generated recipes
-    else
-      render template: 'uploaded_ingredients/index'
+      else
+        render template: 'uploaded_ingredients/index'
     end
   end
+
+
+  #   # Use the RecipeService to generate recipes based on the combined ingredients, time, and people
+  #   service = ChefgptService.new(uploaded_ingredients, pantry_ingredients, time, people)
+  #   @recipes = service.generate_recipes
+  #   if @recipes && @recipes.any?
+  #     @recipes  # Use @recipes in your view to display the generated recipes
+  #   else
+  #     render template: 'uploaded_ingredients/index'
+  #   end
+  # end
 
   def search
 
