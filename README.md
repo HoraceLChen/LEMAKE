@@ -1,6 +1,6 @@
 <H1>LeMake</H1>
 <p>your friendly AI-powered assistant chef!</p>
-
+![alt text](app/assets/images/LemakeTitleCard.png)
 <h2>Project Setup</h2>
 <p>
  ⦿ Navigate to desired file directory </br>
