@@ -1,3 +1,4 @@
+require 'json'
 class ChefgptService
   attr_reader :client, :uploaded_ingredients, :pantry_ingredients, :time, :people
 
@@ -10,22 +11,29 @@ class ChefgptService
   end
 
   def generate_recipes
-    prompt = "Generate 3 recipes that only use the following ingredients: #{@combined_ingredients.join(", ")}. For each recipe, start with 'title: [Recipe Title]' on one line, followed by the description on the next line, then ingredients and finally instructions. Separate each recipe with a line that says '---'. Each recipe should take no more than #{@time} minutes, serve #{@people} people, and include measurements for ingredients in metric units."
-    full_text = fetch_completion_from_openai(prompt, 1600)
-    parse_recipes(full_text)
+    prompt = "Generate 3 recipes that only use the following ingredients: #{@combined_ingredients.join(", ")}. Each recipe should take no more than #{time} minutes and serve #{people} people"
+    gpt_response = fetch_completion_from_openai(prompt, 1200)
+    begin
+      data = JSON.parse(gpt_response)
+    rescue JSON::ParserError => e
+      puts "Error parsing JSON: #{e.message}"
+    end
+    raise
+    create_recipe_from_json(data["recipes"])
   end
 
   private
 
   def fetch_completion_from_openai(prompt, max_tokens)
     messages = [
-      { role: "system", content: "You are a helpful assistant that generates recipes." },
+      { role: "system", content: "you are a helpful cooking assistant who only responds in correct json string syntax. format the string with these fields: {recipes: [{title:, desc:, steps: [], ingredients:[]} include metric units for ingredients. Only respond with code as plain text without code block syntax around it.
+      " },
       { role: "user", content: prompt }
     ]
 
     response = client.chat(
       parameters: {
-        model: "gpt-3.5-turbo-16k",
+        model: "gpt-3.5-turbo-16k-0613",
         messages: messages,
         max_tokens: max_tokens,
         temperature: 0.2
@@ -37,45 +45,28 @@ class ChefgptService
     nil
   end
 
-  def parse_recipes(full_text)
-    return [] unless full_text
-
-    recipe_blocks = full_text.split("---").map(&:strip).reject(&:empty?)
-    recipe_instances = []
-
-    recipe_blocks.each do |recipe_block|
-      lines = recipe_block.split("\n").map(&:strip)
-      title, description, ingredients, steps = parse_recipe_block(lines)
-
-      best_image = @img_search.search(title)
-
-      recipe_instance = Recipe.create(
-        title: title,
-        image: best_image,
-        content: description,
-        time: time,
-        steps: steps,
-        ings: ingredients,
-        people: people
-      )
-      recipe_instances << recipe_instance
-    end
-
-    recipe_instances
+  def parse_recipes(gpt_response)
   end
 
-  def parse_recipe_block(lines)
-    title = lines.find { |line| line.start_with?('title:') }&.split(':', 2)&.last&.strip
-    description = lines[1]&.strip
-
-    ingredients_start_index = lines.index { |line| line.strip.downcase == 'ingredients' }&.+(1)
-    instructions_start_index = lines.index { |line| line.strip.downcase == 'instructions' }&.+(1)
-
-    ingredients = ingredients_start_index && instructions_start_index ? lines[ingredients_start_index...instructions_start_index - 1] : []
-    ingredients = ingredients.map { |item| item.sub('- ', '').strip }
-
-    steps = instructions_start_index ? lines[instructions_start_index..-1].join(' ').split(/\d+\./).map(&:strip).reject(&:empty?) : []
-
-    [title, description, ingredients, steps]
+  def create_recipe_from_json(recipes_hash)
+    recipe_collection = []
+    recipes_hash.each do |recipe|
+      title = recipe["title"]
+      content = recipe["desc"]
+      ingredients = recipe["ingredients"]
+      best_image = @img_search.search(title)
+      json_steps = recipe["steps"].each_with_index { |step, index| "#{index} #{step}" }
+      gpt_recipe_instance = Recipe.create(
+              title: title,
+              image: best_image,
+              content: content,
+              time: time,
+              steps: json_steps,
+              ings: ingredients,
+              people: people
+      )
+      recipe_collection << gpt_recipe_instance
+    end
+    recipe_collection
   end
 end

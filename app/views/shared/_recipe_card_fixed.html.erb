@@ -1,16 +1,16 @@
-<div class="recipe-card">
-  <div class="recipe-card-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, #11111182), url('<%= "http://source.unsplash.com/featured/?#{@recipe.title}&#{rand(10)}" %>');">
-    <div class="like-count">
-      <i class="fa-solid fa-heart"> <%= rand(50..2473) %></i>
-      </div>
-      <div class="d-flex">
-        <div class="title">
-          <h5><%= @recipe.title %></h5>
-        </div>
-      <%# <div class="d-flex align-items-start">
-        <%# <%= link_to "COOK", bookmarks_user_path(current_user, recipe: @recipe), data:{turbo_method: :post}, class: "btn btn-success" %>
-      <%# </div> %>
-    </div>
-  </div>
-  <%= link_to "", bookmarks_user_path(current_user, recipe: @recipe), data:{turbo_method: :post}, class: "card-link" %>
-</div>
+<% # <div class="recipe-card">
+  #<div class="recipe-card-image" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 50%, #11111182), url('<%= "http://source.unsplash.com/featured/?#{@recipe.title}&#{rand(10)}" %>');">
+   # <div class="like-count">
+    #  <i class="fa-solid fa-heart"> <%= rand(50..2473) %></i>
+     # </div>
+      #<div class="d-flex">
+       # <div class="title">
+        #  <h5><%= @recipe.title %></h5>
+       # </div>
+     # <%# <div class="d-flex align-items-start">
+      #  <%# <%= link_to "COOK", bookmarks_user_path(current_user, recipe: @recipe), data:{turbo_method: :post}, class: "btn btn-success" %>
+     # <%# </div> %>
+   # </div>
+ # </div>
+ # <%= link_to "", bookmarks_user_path(current_user, recipe: @recipe), data:{turbo_method: :post}, class: "card-link" %>
+# </div> %>
