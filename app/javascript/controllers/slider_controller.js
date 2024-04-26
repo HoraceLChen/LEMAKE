@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["tab", "panel"];
 
   connect() {
-    console.log("here");
+    // console.log("here");
     this.tabTargets.forEach(tab => {
       tab.addEventListener("click", this.changeTab.bind(this));
     });

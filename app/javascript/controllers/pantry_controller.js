@@ -4,20 +4,20 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["ingredient", "icon", "popup", "form", "insert", "essentialCheckbox", "generalCheckbox"]
   connect() {
-    console.log("connected");
+    // console.log("connected");
   }
 
   popUp() {
-    console.log("popup");
+    // console.log("popup");
     this.popupTarget.classList.add("open-popup")
   }
 
 
   save(event){
-    const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-    console.log("SUCCESS");
-    console.log(event);
-    console.log(this.formTarget.action);
+    // const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+    // console.log("SUCCESS");
+    // console.log(event);
+    // console.log(this.formTarget.action);
     const url = this.formTarget.action;
     const data = event.currentTarget.dataset.ingredientId;
     fetch(url, {
@@ -43,19 +43,19 @@ export default class extends Controller {
     } else if (data.status === 'destroyed') {
       const ingredientDivs = popup.querySelectorAll('.added-ingredients');
       ingredientDivs.forEach(div => {
-        console.log(div.dataset.id);
-        console.log(data.ingredient.id);
+        // console.log(div.dataset.id);
+        // console.log(data.ingredient.id);
         if (parseInt(div.dataset.id, 10) === data.ingredient.id) {
           div.remove();
-          console.log('delete');
+          // console.log('delete');
         }
       });
     }
   }
 
   check(event) {
-    console.log(event);
-    console.log('connected to Essentials');
+    // console.log(event);
+    // console.log('connected to Essentials');
     if (event.target.matches('.essential-check-box')) {
       this.checkboxes(event, this.generalCheckboxTargets)
     }
@@ -83,7 +83,7 @@ export default class extends Controller {
   }
 
   seeMore(event){
-    console.log(event.currentTarget);
+    // console.log(event.currentTarget);
     const category = event.currentTarget.dataset.category;
     this.ingredientTargets.forEach((ingredient) => {
       if(ingredient.dataset.category === category){
