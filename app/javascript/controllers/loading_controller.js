@@ -3,11 +3,11 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="loading"
 export default class extends Controller {
   connect() {
-    console.log("loading connected");
+    // console.log("loading connected");
   }
 
   leChef(event){
-    console.log("ok");
+    // console.log("ok");
     const overlay = document.createElement("div");
     overlay.classList.add("loading-overlay");
 

@@ -5,8 +5,8 @@ export default class extends Controller {
   static targets = [ "favouriteLink" ]
 
   connect() {
-    console.log("You've connected to the Favourites Controller");
-    console.log(this.favouriteLinkTarget);
+    // console.log("You've connected to the Favourites Controller");
+    // console.log(this.favouriteLinkTarget);
   }
 
   toggle(event) {

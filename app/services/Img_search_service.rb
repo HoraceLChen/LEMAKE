@@ -4,12 +4,12 @@ class ImgSearchService
     @conn = Faraday.new(url: @url)
   end
 
-  def search(q)
+  def search(recipe_name)
     res = @conn.get do |req|
       req.url '/customsearch/v1'
       req.params['key'] = ENV['GOOGLE_API_KEY']
       req.params['cx'] = ENV['GOOGLE_CX_KEY']
-      req.params['q'] = q
+      req.params['q'] = recipe_name
       req.params['searchType'] = 'image'
       req.params['num'] = 5
     end
@@ -22,7 +22,8 @@ class ImgSearchService
     best_image = nil
     if res.status == 200
       data = JSON.parse(res.body)
-      closest_aspect_ratio_diff = Float::INFINITY  # Initialize to a very large value
+      # Initialize to a very large value
+      closest_aspect_ratio_diff = Float::INFINITY
 
       if data['items']
         data['items'][0..4].each do |item|
@@ -42,8 +43,9 @@ class ImgSearchService
           end
         end
       end
+    else
+      best_image = "https://www.bolnews.com/wp-content/uploads/2024/01/pappap.jpg"
     end
     best_image  # Return the best image URL or nil if not found
   end
-
 end

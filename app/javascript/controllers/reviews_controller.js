@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ['form', 'content', 'notes'];
 
   connect() {
-    console.log("connected to reviews");
+    // console.log("connected to reviews");
   }
 
   submit(event) {

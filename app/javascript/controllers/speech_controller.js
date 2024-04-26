@@ -4,21 +4,21 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["form", "input", "ingredients"]
   connect() {
-    console.log("connected")
+    // console.log("connected")
   }
 
   record(){
-    console.log("recording")
+    // console.log("recording")
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
     recognition.start();
     recognition.onresult = (event) => {
-      console.log(event.results[0][0].transcript)
+      // console.log(event.results[0][0].transcript)
       const recordedIngredients = event.results[0][0].transcript.split(" and ")
-      console.log(recordedIngredients)
+      // console.log(recordedIngredients)
       recordedIngredients.forEach(ingredient => {
-        console.log(ingredient);
+        // console.log(ingredient);
         const url = this.formTarget.action
         this.inputTarget.value = ingredient.replace(".","")
         const data = new FormData(this.formTarget)
