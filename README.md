@@ -1,6 +1,4 @@
 <H1>LeMake</H1>
-
-![alt text](https://static.wixstatic.com/media/450e54_99123944237748e2880f073f1b2ee261~mv2.png/v1/fill/w_446,h_854,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/450e54_99123944237748e2880f073f1b2ee261~mv2.png)
 <p>your friendly AI-powered assistant chef!</p>
 
 <h2>Project Setup</h2>
