@@ -1,6 +1,4 @@
 <H1>LeMake</H1>
-
-![alt text](http://url/to/[img.png](https://static.wixstatic.com/media/450e54_99123944237748e2880f073f1b2ee261~mv2.png/v1/fill/w_446,h_854,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/450e54_99123944237748e2880f073f1b2ee261~mv2.png))
 <p>your friendly AI-powered assistant chef!</p>
 
 <h2>Project Setup</h2>
@@ -47,3 +45,17 @@ GOOGLE_CX_KEY=(YOUR_KEY_HERE)</br>
 
  ⦿ Open your webrowser and enter [localhost:3000](http://localhost:3000/) (this address may be different on your device, the local address should be found within the terminal logs </br>
 </p>
+
+<h2>Planned improvments</h2>
+✦ CI/CD pipeline
+✦ Optimisation of ingredients and recipe API call
+✦ Add desktop experience
+
+<h2>W.I.P features</h2>
+✦ Migrate from Devise to Auth0
+✦ Calorie + Nutrient tracker and diet/meal suggestions
+
+
+
+
+
